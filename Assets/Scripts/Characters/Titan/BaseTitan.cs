@@ -212,9 +212,22 @@ namespace Characters
         public float GetCurrentSpeed()
         {
             if (IsWalk)
-                return WalkSpeedBase + WalkSpeedPerLevel * Size;
+            {
+                float walkSpeed = WalkSpeedBase + WalkSpeedPerLevel * Size;
+
+                // Set walk animation speed based on WalkSpeedBase
+                if (!string.IsNullOrEmpty(_selectedWalkAnimation) && Animation.IsPlaying(_selectedWalkAnimation))
+                {
+                    float speedMultiplier = Mathf.Clamp(WalkSpeedBase / 20, 0.3f, 3f);
+                    Animation.SetSpeed(_selectedWalkAnimation, speedMultiplier);
+                }
+
+                return walkSpeed;
+            }
             else
+            {
                 return RunSpeedBase + RunSpeedPerLevel * Size;
+            }
         }
 
         public virtual bool CanAction()
