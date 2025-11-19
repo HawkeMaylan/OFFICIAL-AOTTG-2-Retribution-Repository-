@@ -607,75 +607,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44ce89bb2841764e934408a7fdd2d64, type: 3}
---- !u!1001 &275715099
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 494106088460591731, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 61.875004
-      objectReference: {fileID: 0}
-    - target: {fileID: 494106088460591731, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 494106088460591731, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -120.08592
-      objectReference: {fileID: 0}
-    - target: {fileID: 494106088460591731, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 494106088460591731, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -3.6379788e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 494106088460591731, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.00000038743167
-      objectReference: {fileID: 0}
-    - target: {fileID: 494106088460591731, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -5.820766e-11
-      objectReference: {fileID: 0}
-    - target: {fileID: 494106088460591731, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 494106088460591731, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 494106088460591731, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1001296730576248787, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: sceneViewId
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5963616655825842700, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: m_Name
-      value: HumanCorpseRagdoll
-      objectReference: {fileID: 0}
-    - target: {fileID: 6076124780089122182, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: sceneViewId
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6764234357793165822, guid: dcc16dac331d3884fa886b1855445165, type: 3}
-      propertyPath: sceneViewId
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dcc16dac331d3884fa886b1855445165, type: 3}
 --- !u!1 &283402160
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,6 +3232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitanAnimationDoll
       objectReference: {fileID: 0}
+    - target: {fileID: 5556018651141658075, guid: e3a7a8e81f6bfe84fb201816cd546697, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5573397954583505099, guid: e3a7a8e81f6bfe84fb201816cd546697, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -1.3598716
@@ -3598,4 +3533,3 @@ SceneRoots:
   - {fileID: 810651572}
   - {fileID: 1148045051}
   - {fileID: 7806976197311109771}
-  - {fileID: 275715099}
