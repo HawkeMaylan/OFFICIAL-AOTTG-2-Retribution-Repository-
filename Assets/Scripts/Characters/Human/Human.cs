@@ -4461,7 +4461,7 @@ namespace Characters
         public bool CanBladeAttack()
         {
            
-            return Weapon is BladeWeapon && ((BladeWeapon)Weapon).CurrentDurability > 0f && State == HumanState.Idle;
+            return Weapon is BladeWeapon && ((BladeWeapon)Weapon).CurrentDurability > 0f && State == HumanState.Idle && State != HumanState.FiringFlare; ;
         }
 
         public void StartSpecialAttack(string animation)

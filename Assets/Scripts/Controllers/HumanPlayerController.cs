@@ -203,12 +203,16 @@ namespace Controllers
             //TestScore();
             if (inMenu)
                 return;
-            bool canHook = _human.State != HumanState.Grab && _human.State != HumanState.Stun && _human.Stats.CurrentGas > 0f
-                && _human.MountState != HumanMountState.MapObject && !_human.Dead;
+
+            // Prevent hooks during flare firing
+            bool canHook = _human.State != HumanState.Grab && _human.State != HumanState.Stun && _human.State != HumanState.FiringFlare &&
+                           _human.Stats.CurrentGas > 0f && _human.MountState != HumanMountState.MapObject && !_human.Dead;
+
             bool hookBoth = _humanInput.HookBoth.GetKey();
             bool hookLeft = _humanInput.HookLeft.GetKey();
             bool hookRight = _humanInput.HookRight.GetKey();
             bool hasHook = _human.HookLeft.HasHook() || _human.HookRight.HasHook();
+
             if (_human.CancelHookBothKey)
             {
                 if (hookBoth)
@@ -230,8 +234,11 @@ namespace Controllers
                 else
                     _human.CancelHookRightKey = false;
             }
+
             _human.HookLeft.HookBoth = hookBoth && !hookLeft;
             _human.HookRight.HookBoth = hookBoth && !hookRight;
+
+            // This line is where hooks actually get fired 
             _human.HookLeft.SetInput(canHook && !IsSpin3Special() && (hookLeft || (hookBoth && (_human.HookLeft.IsHooked() || !hasHook))));
             _human.HookRight.SetInput(canHook && !IsSpin3Special() && (hookRight || (hookBoth && (_human.HookRight.IsHooked() || !hasHook))));
 
@@ -257,7 +264,7 @@ namespace Controllers
         }
 
         private HashSet<HumanState> _illegalWeaponStates = new HashSet<HumanState>() { HumanState.Grab, HumanState.SpecialAction, HumanState.EmoteAction, HumanState.Reload,
-            HumanState.SpecialAttack, HumanState.Stun };
+            HumanState.SpecialAttack, HumanState.Stun, HumanState.FiringFlare };
 
         protected override void UpdateActionInput(bool inMenu)
         {
