@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c509dbaa7b6f416409e3195321a2187e, type: 3}
+  m_Name: BeyondShigPalette
+  m_EditorClassIdentifier: 
+  PaletteLayers:
+  - {fileID: 8574412962073106934, guid: 2a0ceb36cf9d3a84d826aa31bc8062c8, type: 2}
+  - {fileID: 8574412962073106934, guid: 28ec3642e3511e146a597c6882b13539, type: 2}
+  - {fileID: 8574412962073106934, guid: eef50a035c8391f4c8d794807f5e0ff3, type: 2}
+  - {fileID: 8574412962073106934, guid: d424e13d58617ff488afc6d71b7e64f6, type: 2}
+  - {fileID: 8574412962073106934, guid: abf12908e773742438fb70f9514d5a8b, type: 2}
+  - {fileID: 8574412962073106934, guid: f096e647569a7d543a917255b1674e53, type: 2}
+  - {fileID: 8574412962073106934, guid: 790491d62cb19824ab771fa5dde34d1c, type: 2}
+  - {fileID: 8574412962073106934, guid: 7b1fa758219c08f4d9e95b0717db15ff, type: 2}
+  - {fileID: 8574412962073106934, guid: d03444ba8928ed64daa24aced3bf4290, type: 2}
+  - {fileID: 8574412962073106934, guid: 13a9f531b959afe43a3c781bbd7de91a, type: 2}

@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7786829797996438746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6272257523902990728}
+  - component: {fileID: 1981228221184896208}
+  m_Layer: 0
+  m_Name: Act06_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6272257523902990728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786829797996438746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5679426269638479986}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1981228221184896208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786829797996438746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 1
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!1001 &5679426269638605528
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6272257523902990728}
+    m_Modifications:
+    - target: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_Name
+      value: GarrisonSoldierOnGuard
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -40109.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 742.0274
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 32334.943
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9878764
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.05819299
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.107999735
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.09513037
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -7.789
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 11.782
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 10.196
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5118348308097910401}
+    - targetCorrespondingSourceObject: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 926010090531241079}
+    - targetCorrespondingSourceObject: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8048164064075694122}
+    - targetCorrespondingSourceObject: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 547796723524589495}
+  m_SourcePrefab: {fileID: 100100000, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+--- !u!4 &5679426269638479986 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+  m_PrefabInstance: {fileID: 5679426269638605528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5679426269638650898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+  m_PrefabInstance: {fileID: 5679426269638605528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5118348308097910401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679426269638650898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a450ee0181e48c64d84ae85d6812f58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityName: Officer
+  maxHP: 1
+  currentHP: 1
+  team: Neutral
+  entityForm: 0
+  showKillFeed: 1
+  useTextDisplay: 0
+  use3DHealthBar: 0
+  destroyOnDeath: 1
+  onlyShowUIWhenDamaged: 0
+  hideUIDistance: 50
+  referenceCamera: {fileID: 0}
+  fadeUIAfterDelay: 0
+  uiFadeDelay: 5
+  healthBarOffset: {x: 0, y: 2.5, z: 0}
+  textOffset: {x: 0, y: 2, z: 0}
+  textScale: 1
+  healthBarScale: {x: 1, y: 0.2, z: 1}
+  hitCooldown: 0.2
+  flatDamageFromUnknown: 100
+  hitEffectPrefab: {fileID: 2150116832296065822, guid: 79fd3595b9b947c4aafdcb1f3d9a754e, type: 3}
+  hitEffectOffset: {x: 0, y: 2, z: 0}
+  hitEffectRotation: {x: 0, y: 0, z: 0}
+  deathEffectPrefab: {fileID: 3729050558684392942, guid: ffffaa42f9aabea41b19e3c06d6a0f2d, type: 3}
+  deathEffectOffset: {x: 0, y: 0, z: 0}
+  deathEffectRotation: {x: 0, y: 0, z: 0}
+  customCollider: {fileID: 0}
+--- !u!114 &926010090531241079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679426269638650898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 5118348308097910401}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &8048164064075694122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679426269638650898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485e3a7ff03500c4fb08327902a6f88e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - What a pain in my ass
+  - Just send in the Garrison already
+  - Can't wait to get out of here
+  dialogueInterval: 20
+  fadeTime: 10
+  textOffset: {x: 0, y: 2, z: 0}
+  textScale: 1
+  referenceCamera: {fileID: 0}
+--- !u!65 &547796723524589495
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679426269638650898}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}

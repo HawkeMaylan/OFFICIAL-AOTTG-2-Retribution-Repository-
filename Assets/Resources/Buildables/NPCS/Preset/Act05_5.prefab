@@ -1,0 +1,239 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2609725189815291246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4768762145939902727}
+  - component: {fileID: 5144632074712149282}
+  m_Layer: 0
+  m_Name: Act05_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4768762145939902727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609725189815291246}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7968984810800718458}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5144632074712149282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609725189815291246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 1
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!1001 &7968984810800859344
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4768762145939902727}
+    m_Modifications:
+    - target: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_Name
+      value: GarrisonSoldierOnGuard
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34438.793
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 200.05392
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 41869.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99244034
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.04796463
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.112914704
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.003442086
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -5.508
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 12.993
+      objectReference: {fileID: 0}
+    - target: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.23
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2330753027829656661}
+    - targetCorrespondingSourceObject: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 346499255618937668}
+    - targetCorrespondingSourceObject: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6151167530627598845}
+    - targetCorrespondingSourceObject: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2077197633477156960}
+  m_SourcePrefab: {fileID: 100100000, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+--- !u!4 &7968984810800718458 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 420522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+  m_PrefabInstance: {fileID: 7968984810800859344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7968984810800881178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 120522, guid: bb89e51e6c796d54cba4f2491238cd00, type: 3}
+  m_PrefabInstance: {fileID: 7968984810800859344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2330753027829656661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968984810800881178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a450ee0181e48c64d84ae85d6812f58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityName: Captain
+  maxHP: 1
+  currentHP: 1
+  team: Neutral
+  entityForm: 0
+  showKillFeed: 1
+  useTextDisplay: 0
+  use3DHealthBar: 0
+  destroyOnDeath: 1
+  onlyShowUIWhenDamaged: 0
+  hideUIDistance: 50
+  referenceCamera: {fileID: 0}
+  fadeUIAfterDelay: 0
+  uiFadeDelay: 5
+  healthBarOffset: {x: 0, y: 2.5, z: 0}
+  textOffset: {x: 0, y: 2, z: 0}
+  textScale: 1
+  healthBarScale: {x: 1, y: 0.2, z: 1}
+  hitCooldown: 0.2
+  flatDamageFromUnknown: 100
+  hitEffectPrefab: {fileID: 2150116832296065822, guid: 79fd3595b9b947c4aafdcb1f3d9a754e, type: 3}
+  hitEffectOffset: {x: 0, y: 2, z: 0}
+  hitEffectRotation: {x: 0, y: 0, z: 0}
+  deathEffectPrefab: {fileID: 3729050558684392942, guid: ffffaa42f9aabea41b19e3c06d6a0f2d, type: 3}
+  deathEffectOffset: {x: 0, y: 0, z: 0}
+  deathEffectRotation: {x: 0, y: 0, z: 0}
+  customCollider: {fileID: 0}
+--- !u!114 &346499255618937668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968984810800881178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &6151167530627598845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968984810800881178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485e3a7ff03500c4fb08327902a6f88e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - Can't wait to deal with those dirty bastards
+  - You here for the log? Ill put it on my desk when the wagons are here
+  - Can't wait to get out of here
+  dialogueInterval: 15
+  fadeTime: 2
+  textOffset: {x: 0, y: 2, z: 0}
+  textScale: 1
+  referenceCamera: {fileID: 0}
+--- !u!65 &2077197633477156960
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968984810800881178}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
