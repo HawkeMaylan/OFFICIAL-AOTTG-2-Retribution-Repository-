@@ -1,0 +1,87 @@
+{
+	"Menu": [
+		{"Name": "Act-1", "Volume": 1},
+		{"Name": "Act-3", "Volume": 1},
+		{"Name": "Act_2", "Volume": 1},
+		{"Name": "Act_2-2", "Volume": 1}
+
+
+	],
+
+	"Ambient": [
+		{"Name": "-u01-ots2m2_on_the_walls", "Volume": 1},
+		{"Name": "-u02-titan_invasion__high_quality__hiroyuki_sawano", "Volume": 1},
+		{"Name": "-u03-el", "Volume": 1},
+		{"Name": "-u04-vn-pf20130524", "Volume": 1},
+		{"Name": "-u05-7-b__hiroyuki_sawano", "Volume": 1},
+		{"Name": "-u06-aots3-1000", "Volume": 1},
+		{"Name": "-u07-female_titan_entranceattack_on_titan_season_1_ost", "Volume": 1},
+	],
+
+	"Peaceful": [
+		{"Name": "+P01-eye_water__high_quality__hiroyuki_sawano", "Volume": 1},
+		{"Name": "+P02-2_ost_~_call_of_silence__ymir_past_theme", "Volume": 1},
+		{"Name": "+P03-attackd__attack_on_d", "Volume": 1},
+		{"Name": "+P04-aots2m3_her_heart_still_beating", "Volume": 1},
+		{"Name": "+P05-im_back_home", "Volume": 1},
+		{"Name": "+P06-counter_attack_mankind_different_version", "Volume": 1},
+		{"Name": "+P07-Counterattack-Mankind", "Volume": 1},
+		{"Name": "+P08-wings_of_freedom__epic_music__attack_on_titan", "Volume": 1},
+		{"Name": "+P09-thedogs_with_lyrics", "Volume": 1},
+		{"Name": "+P10-so_ist_es_immer", "Volume": 1},
+		{"Name": "+P11-omake-pfadlib_-_attack_on_titan_ost_-_hiroyuki_sawano", "Volume": 1},
+		{"Name": "+P12-vc-pf20130218_-_attack_on_titan_ost_2_-_hiroyuki_sawano", "Volume": 1},
+		{"Name": "+P13-vogel_im_kfig_episode_25_anime_version__attack_on_titan_season_1_ost", "Volume": 1},
+		{"Name": "+P14-vc-pf20130218_anime_versioneren_emerges_from_the_titan__attack_on_titan_season_1_ost", "Volume": 1},
+		{"Name": "+P15-attackd_anime_versionthe_coordinateattack_on_titan_season_3_ost", "Volume": 1},
+		{"Name": "+P16-erenthe_episode_37_anime_version__attack_on_titan_season_2_ost", "Volume": 1},
+		{"Name": "+P17-2volt_episode_40_anime_versionhistorias_pastattack_on_titan_season_3_ost", "Volume": 1}
+
+		
+	],
+	"Battle": [
+		{"Name": "16-son2seaver_pre-episode_31", "Volume": 1},
+		{"Name": "15-theweightoflives", "Volume": 1},
+		{"Name": "14-st-hrn-gt20130629", "Volume": 1},
+		{"Name": "13-levi_vs_beast_titan", "Volume": 1},
+		{"Name": "12-levi_vs_female_titan_theme", "Volume": 1},
+		{"Name": "11-2volt__colossal_titan_fight_theme", "Volume": 1},
+		{"Name": "10-yamanaiame", "Volume": 1},
+		{"Name": "09-barricades", "Volume": 1},
+		{"Name": "08-female_titan_extermination", "Volume": 1},
+		{"Name": "07-army_attack", "Volume": 1},
+		{"Name": "06-counterattack-mankind_", "Volume": 1},
+		{"Name": "05-the_reluctant_heroes", "Volume": 1},
+		{"Name": "03_erenthe__eren_the_c", "Volume": 1},
+		{"Name": "02-Erens-Berserk-Theme", "Volume": 1},
+		{"Name": "01-Hiroyuki-Sawano-E.M.A", "Volume": 1},
+		{"Name": "04-Three-Dimensional-Maneuvering", "Volume": 1}
+	],
+
+	"Racing": [
+		{"Name": "Meownist_Ragakou-Drift", "Volume": 1},
+		{"Name": "Big-Bobby--Dakros_Battle", "Volume": 1},
+		{"Name": "Nadim-Doueiri_Catch-Me", "Volume": 1},
+		{"Name": "Nadim-Doueiri_Sunset-Squad", "Volume": 1},
+		{"Name": "Unrelated-Acts_Scout-Flight", "Volume": 1}
+	],
+	"Death": [
+		{"Name": "DeathSudden", "Volume": 1}
+	],
+	"Grabbed": [
+		{"Name": "DeathGrabbed", "Volume": 1}
+	],
+	"Effect": [
+		{"Name": "effect_play", "Volume": 1}
+	],
+	"Transition": [
+		{"Name": "transition_amogus1", "Volume": 1},
+		{"Name": "transition_amogus2", "Volume": 1},
+		{"Name": "transition_bells", "Volume": 1},
+		{"Name": "transition_short_drums_mix", "Volume": 1},
+		{"Name": "transition_short_guitar_tamb", "Volume": 1},
+		{"Name": "transition_short_guzheng", "Volume": 1},
+		{"Name": "transition_short_violin_1", "Volume": 1},
+		{"Name": "transition_short_violin_2", "Volume": 1}
+	]
+}

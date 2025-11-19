@@ -1,0 +1,1629 @@
+{
+	"Type": "Titan",
+	"SpawnRates": {
+		"Training": { "Normal": 1.0 },
+		"Easy": {
+			"Normal": 0.8,
+			"Abnormal": 0.2
+		},
+		"Normal": {
+			"Normal": 0.67,
+			"Abnormal": 0.16,
+			"Jumper": 0.15,
+			"Crawler": 0.02
+		},
+		"Hard": {
+			"Normal": 0.45,
+			"Abnormal": 0.29,
+			"Jumper": 0.14,
+			"Crawler": 0.03,
+			"Punk": 0.06,
+			"Thrower": 0.03
+		},
+		"Abnormal": {
+			"Normal": 0,
+			"Abnormal": 0.38,
+			"Jumper": 0.38,
+			"Crawler": 0.07,
+			"Punk": 0.11,
+			"Thrower": 0.03,
+			"Aberrant": 0.03
+		}
+	},
+	"AttackInfo": {
+		"AttackPunchCombo": {
+			"HumanOnly": false,
+			"LeftArm": true,
+			"RightArm": true
+		},
+		"AttackPunch": {
+			"HumanOnly": false,
+			"LeftArm": true,
+			"RightArm": true
+		},
+		"AttackSlam": {
+			"HumanOnly": true,
+			"LeftArm": true,
+			"RightArm": true
+		},
+		"AttackBellyFlop": {
+			"Ranges": {
+				"X": [ -5, 5 ],
+				"Y": [ -3, 7 ],
+				"Z": [ 0, 14 ]
+			},
+			"HumanOnly": true
+		},
+		"AttackSlapL": {
+			"HumanOnly": false,
+			"LeftArm": true
+		},
+		"AttackSlapR": {
+			"HumanOnly": false,
+			"RightArm": true
+		},
+		"AttackSlapHighL": {
+			"HumanOnly": false,
+			"LeftArm": true
+		},
+		"AttackSlapHighR": {
+			"HumanOnly": false,
+			"RightArm": true
+		},
+		"AttackSlapLowL": {
+			"HumanOnly": false,
+			"LeftArm": true
+		},
+		"AttackSlapLowR": {
+			"HumanOnly": false,
+			"RightArm": true
+		},
+		"AttackKick": { "HumanOnly": true },
+		"AttackStomp": { "HumanOnly": true },
+		"AttackSwingL": {
+			"HumanOnly": true,
+			"LeftArm": true
+		},
+		"AttackSwingR": {
+			"HumanOnly": true,
+			"RightArm": true
+		},
+		"AttackBiteF": { "HumanOnly": true },
+		"AttackBiteL": { "HumanOnly": true },
+		"AttackBiteR": { "HumanOnly": true },
+		"AttackBrushChestL": {
+			"HumanOnly": true,
+			"LeftArm": true
+		},
+		"AttackBrushChestR": {
+			"HumanOnly": true,
+			"RightArm": true
+		},
+		"AttackHitFace": {
+			"HumanOnly": true,
+			"LeftArm": true,
+			"RightArm": true
+		},
+		"AttackHitBack": {
+			"HumanOnly": true,
+			"LeftArm": true,
+			"RightArm": true
+		},
+		"AttackGrabAirFarL": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"LeftArm": true
+		},
+		"AttackGrabAirFarR": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"RightArm": true
+		},
+		"AttackGrabAirL": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"LeftArm": true
+		},
+		"AttackGrabAirR": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"RightArm": true
+		},
+		"AttackGrabBackL": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"LeftArm": true
+		},
+		"AttackGrabBackR": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"RightArm": true
+		},
+		"AttackGrabCoreL": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"LeftArm": true
+		},
+		"AttackGrabCoreR": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"RightArm": true
+		},
+		"AttackGrabGroundBackL": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"LeftArm": true
+		},
+		"AttackGrabGroundBackR": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"RightArm": true
+		},
+		"AttackGrabGroundFrontL": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"LeftArm": true
+		},
+		"AttackGrabGroundFrontR": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"RightArm": true
+		},
+		"AttackGrabHeadBackL": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"LeftArm": true
+		},
+		"AttackGrabHeadBackR": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"RightArm": true
+		},
+		"AttackGrabHeadFrontL": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"LeftArm": true
+		},
+		"AttackGrabHeadFrontR": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"RightArm": true
+		},
+		"AttackGrabHighL": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"LeftArm": true
+		},
+		"AttackGrabHighR": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"RightArm": true
+		},
+		"AttackGrabStomachL": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"LeftArm": true
+		},
+		"AttackGrabStomachR": {
+			"HumanOnly": true,
+			"MapObject": false,
+			"RightArm": true
+		},
+		"AttackJump": {
+			"Ranges": {
+				"X": [ -6, 6 ],
+				"Y": [ 16, 100 ],
+				"Z": [ -2, 100 ]
+			},
+			"HumanOnly": true,
+			"Far": true
+		},
+		"AttackJumpCrawler": {
+			"Ranges": {
+				"X": [ -6, 6 ],
+				"Y": [ 12, 100 ],
+				"Z": [ 0, 100 ]
+			},
+			"HumanOnly": true,
+			"Far": true
+		},
+		"AttackRockThrow": {
+			"Ranges": {
+				"X": [ -10, 10 ],
+				"Y": [ -100, 200 ],
+				"Z": [ 0, 200 ]
+			},
+			"HumanOnly": false,
+			"Far": true,
+			"LeftArm": true,
+			"RightArm": true
+		}
+	},
+	"Default": {
+		"Name": "Titan",
+		"Health": 1,
+		"HealthMin": 200,
+		"HealthMax": 650,
+		"IsCrawler": false,
+		"DetectRange": 30000,
+		"FocusRange": 30000,
+		"FocusTime": 1.0,
+		"TurnAngle": 45,
+		"TurnSpeed": 1.3,
+		"TurnPause": 0.8,
+		"CloseAttackRange": 12,
+		"FarAttackMinRange": 0,
+		"FarAttackMaxRange": 30,
+		"FarAttackCooldown": 4.0,
+		"AttackWait": 0.5,
+		"AttackPause": 0.5,
+		"ActionPause": 0.5,
+
+
+		"ChaseAngleTimeMin": 0.15,
+		"ChaseAngleTimeMax": 0.50,
+		"ChaseAngleMinRange": 50,
+
+		"DetectRangeMin": 30000,
+		"DetectRangeMax": 40200,
+
+		"FocusRangeMin": 15000,
+		"FocusRangeMax": 30200,
+
+		"FocusTimeMin": 1.0,
+		"FocusTimeMax": 2.0,
+
+		"TurnAngleMin": 45,
+		"TurnAngleMax": 60,
+
+		"TurnSpeedMin": 1.3,
+		"TurnSpeedMax": 6.0,
+
+		"TurnPauseMin": 0.01,
+		"TurnPauseMax": 1.2,
+
+		"CloseAttackRangeMin": 11,
+		"CloseAttackRangeMax": 13,
+
+		"FarAttackMinRangeMin": 10,
+		"FarAttackMinRangeMax": 20,
+
+		"FarAttackMaxRangeMin": 30,
+		"FarAttackMaxRangeMax": 400,
+
+		"FarAttackCooldownMin": 1.0,
+		"FarAttackCooldownMax": 6.0,
+
+		"AttackWaitMin": 0.05,
+		"AttackWaitMax": 0.5,
+
+		"AttackPauseMin": 0.01,
+		"AttackPauseMax": 0.5,
+
+		"ActionPauseMin": 0.01,
+		"ActionPauseMax": 0.5,
+
+		"ChaseAngleMinRangeMin": 20,
+		"ChaseAngleMinRangeMax": 60,
+
+
+
+		"IsTurn": true,
+		"IsRun": false,
+		"RunAnimation": 1,
+		"WalkSpeedBase": 5.0,
+		"WalkSpeedPerLevel": 1.0,
+		"RunSpeedBase": 15.0,
+		"RunSpeedPerLevel": 5.0,
+		"JumpForce": 150,
+		"RotateSpeed": 1.6,
+
+		"RunAnimationMin": 1,
+		"RunAnimationMax": 2,
+
+		"WalkSpeedBaseMin": 20.0,
+		"WalkSpeedBaseMax": 40.0,
+
+		"WalkSpeedPerLevelMin": 1.0,
+		"WalkSpeedPerLevelMax": 2.0,
+
+		"RunSpeedBaseMin": 30.0,
+		"RunSpeedBaseMax": 55.0,
+
+		"RunSpeedPerLevelMin": 4.0,
+		"RunSpeedPerLevelMax": 6.0,
+
+		"JumpForceMin": 150,
+		"JumpForceMax": 300,
+
+		"RotateSpeedMin": 1.6,
+		"RotateSpeedMax": 4,
+
+
+		"BodyHeadCombos": [
+			{
+				"Body": 0,
+				"Head": 0,
+				"Chance": 0.1
+			},
+			{
+				"Body": 0,
+				"Head": 1,
+				"Chance": 0.1
+			},
+			{
+				"Body": 0,
+				"Head": 2,
+				"Chance": 0.1
+			},
+			{
+				"Body": 0,
+				"Head": 3,
+				"Chance": 0.1
+			},
+			{
+				"Body": 1,
+				"Head": 0,
+				"Chance": 0.1
+			},
+			{
+				"Body": 1,
+				"Head": 1,
+				"Chance": 0.1
+			},
+			{
+				"Body": 1,
+				"Head": 2,
+				"Chance": 0.1
+			},
+			{
+				"Body": 1,
+				"Head": 3,
+				"Chance": 0.1
+			},
+			{
+				"Body": 2,
+				"Head": 0,
+				"Chance": 0.1
+			},
+			{
+				"Body": 2,
+				"Head": 1,
+				"Chance": 0.1
+			},
+			{
+				"Body": 2,
+				"Head": 2,
+				"Chance": 0.1
+			},
+			{
+				"Body": 2,
+				"Head": 3,
+				"Chance": 0.1
+			},
+			{
+				"Body": 3,
+				"Head": 0,
+				"Chance": 0.1
+			},
+			{
+				"Body": 3,
+				"Head": 1,
+				"Chance": 0.1
+			},
+			{
+				"Body": 3,
+				"Head": 2,
+				"Chance": 0.1
+			},
+			{
+				"Body": 3,
+				"Head": 3,
+				"Chance": 0.1
+			},
+			{
+				"Body": 4,
+				"Head": 0,
+				"Chance": 0.1
+			},
+			{
+				"Body": 4,
+				"Head": 1,
+				"Chance": 0.1
+			},
+			{
+				"Body": 4,
+				"Head": 2,
+				"Chance": 0.1
+			},
+			{
+				"Body": 4,
+				"Head": 3,
+				"Chance": 0.1
+			}
+		],
+		"AttackSpeedMultiplier": 1.0,
+
+		"AttackSpeedMultiplierMin": 0.8,
+		"AttackSpeedMultiplierMax": 1.85,
+
+		"AttackSpeeds": {
+
+			"AttackRockThrow": 0.7
+		},
+		"Attacks": {}
+	},
+	"Normal": {
+		"Default": {
+			"Attacks": {
+				"AttackPunchCombo": 0.1,
+				"AttackSlam": 0.1,
+				"AttackKick": 0.1,
+				"AttackStomp": 0.1,
+				"AttackGrab*": 0.1,
+				"AttackBite*": 0.1,
+				"AttackSwing*": 0.1,
+				"AttackHit*": 0.1
+			}
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0,
+			"RunAnimationMin": 0.3,
+			"RunAnimationMax": 0.4,
+
+			"WalkSpeedBaseMin": 5.0,
+			"WalkSpeedBaseMax": 10.0,
+
+			"WalkSpeedPerLevelMin": 1.0,
+			"WalkSpeedPerLevelMax": 2.0,
+
+			"RunSpeedBaseMin": 5.0,
+			"RunSpeedBaseMax": 10.0,
+
+			"RunSpeedPerLevelMin": 4.0,
+			"RunSpeedPerLevelMax": 6.0,
+
+			"JumpForceMin": 150,
+			"JumpForceMax": 300,
+
+			"RotateSpeedMin": 0.3,
+			"RotateSpeedMax": 0.4,
+
+
+			"ChaseAngleTimeMin": 0.15,
+			"ChaseAngleTimeMax": 0.50,
+			"ChaseAngleMinRange": 50,
+
+			"DetectRangeMin": 30000,
+			"DetectRangeMax": 40200,
+
+			"FocusRangeMin": 1000,
+			"FocusRangeMax": 2020,
+
+			"FocusTimeMin": 5.0,
+			"FocusTimeMax": 60.0,
+
+			"TurnAngleMin": 45,
+			"TurnAngleMax": 200,
+
+			"TurnSpeedMin": 0.3,
+			"TurnSpeedMax": 0.4,
+
+			"TurnPauseMin": 0.1,
+			"TurnPauseMax": 1.2,
+
+			"CloseAttackRangeMin": 11,
+			"CloseAttackRangeMax": 13,
+
+			"FarAttackMinRangeMin": 10,
+			"FarAttackMinRangeMax": 20,
+
+			"FarAttackMaxRangeMin": 30,
+			"FarAttackMaxRangeMax": 400,
+
+			"FarAttackCooldownMin": 1.0,
+			"FarAttackCooldownMax": 6.0,
+
+			"AttackWaitMin": 0.5,
+			"AttackWaitMax": 1.5,
+
+			"AttackPauseMin": 0.1,
+			"AttackPauseMax": 1.5,
+
+			"ActionPauseMin": 0.1,
+			"ActionPauseMax": 1.5,
+
+			"ChaseAngleMinRangeMin": 20,
+			"ChaseAngleMinRangeMax": 60,
+			"AttackSpeedMultiplierMin": 0.3,
+			"AttackSpeedMultiplierMax": 0.5
+
+		},
+		"Easy": {
+			"DetectRange": 0,
+			"FocusRange": 0,
+			"RunAnimationMin": 0.6,
+			"RunAnimationMax": 0.9,
+
+			"WalkSpeedBaseMin": 10.0,
+			"WalkSpeedBaseMax": 15.0,
+
+			"WalkSpeedPerLevelMin": 1.0,
+			"WalkSpeedPerLevelMax": 2.0,
+
+			"RunSpeedBaseMin": 15.0,
+			"RunSpeedBaseMax": 20.0,
+
+			"RunSpeedPerLevelMin": 4.0,
+			"RunSpeedPerLevelMax": 6.0,
+
+			"JumpForceMin": 150,
+			"JumpForceMax": 300,
+
+			"RotateSpeedMin": 0.7,
+			"RotateSpeedMax": 0.9,
+
+
+			"ChaseAngleTimeMin": 0.15,
+			"ChaseAngleTimeMax": 0.50,
+			"ChaseAngleMinRange": 50,
+
+			"DetectRangeMin": 30000,
+			"DetectRangeMax": 40200,
+
+			"FocusRangeMin": 15000,
+			"FocusRangeMax": 30200,
+
+			"FocusTimeMin": 5.0,
+			"FocusTimeMax": 60.0,
+
+			"TurnAngleMin": 45,
+			"TurnAngleMax": 200,
+
+			"TurnSpeedMin": 0.6,
+			"TurnSpeedMax": 0.9,
+
+			"TurnPauseMin": 0.1,
+			"TurnPauseMax": 0.2,
+
+			"CloseAttackRangeMin": 11,
+			"CloseAttackRangeMax": 13,
+
+			"FarAttackMinRangeMin": 10,
+			"FarAttackMinRangeMax": 20,
+
+			"FarAttackMaxRangeMin": 30,
+			"FarAttackMaxRangeMax": 400,
+
+			"FarAttackCooldownMin": 1.0,
+			"FarAttackCooldownMax": 6.0,
+
+			"AttackWaitMin": 0.5,
+			"AttackWaitMax": 0.5,
+
+			"AttackPauseMin": 0.1,
+			"AttackPauseMax": 0.5,
+
+			"ActionPauseMin": 0.1,
+			"ActionPauseMax": 0.5,
+
+			"ChaseAngleMinRangeMin": 20,
+			"ChaseAngleMinRangeMax": 60,
+			"AttackSpeedMultiplierMin": 0.5,
+			"AttackSpeedMultiplierMax": 1.0
+		},
+		"Normal": {
+
+		},
+		"Hard": {
+			"TurnPause": 0.3,
+			"AttackWait": 0.3,
+			"AttackPause": 0.3,
+			"ActionPause": 0.3,
+			"RotateSpeed": 2.0,
+			"AttackSpeedMultiplier": 1.1
+		},
+		"Abnormal": {
+			"TurnPause": 0.2,
+			"AttackWait": 0.2,
+			"AttackPause": 0.2,
+			"ActionPause": 0.2,
+			"RotateSpeed": 4.0,
+			"WalkSpeedBase": 10.0,
+			"RunSpeedBase": 20.0,
+			"AttackSpeedMultiplier": 1.2
+		}
+	},
+	"Abnormal": {
+		"Default": {
+			"Name": "Abnormal",
+			"IsRun": true,
+			"Attacks": {
+				"AttackPunchCombo": 0.1,
+				"AttackSlam": 0.1,
+				"AttackKick": 0.1,
+				"AttackStomp": 0.1,
+				"AttackGrab*": 0.1,
+				"AttackBite*": 0.1,
+				"AttackSwing*": 0.1,
+				"AttackHit*": 0.1,
+				"AttackBellyFlop": 0.5
+			},
+			"TurnAngleMin": 90,
+			"TurnAngleMax": 250,
+
+			"TurnSpeedMin": 4.3,
+			"TurnSpeedMax": 6.0,
+
+			"TurnPauseMin": 0.001,
+			"TurnPauseMax": 1.2
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0
+		},
+		"Easy": {
+			"TurnPause": 1.0,
+			"AttackWait": 1.0,
+			"AttackPause": 1.0,
+			"ActionPause": 1.0,
+			"AttackSpeedMultiplier": 0.8,
+
+			"DetectRange": 0,
+			"FocusRange": 0,
+			"RunAnimationMin": 0.6,
+			"RunAnimationMax": 0.9,
+
+			"WalkSpeedBaseMin": 10.0,
+			"WalkSpeedBaseMax": 15.0,
+
+			"WalkSpeedPerLevelMin": 1.0,
+			"WalkSpeedPerLevelMax": 2.0,
+
+			"RunSpeedBaseMin": 15.0,
+			"RunSpeedBaseMax": 20.0,
+
+			"RunSpeedPerLevelMin": 4.0,
+			"RunSpeedPerLevelMax": 6.0,
+
+			"JumpForceMin": 150,
+			"JumpForceMax": 300,
+
+			"RotateSpeedMin": 0.7,
+			"RotateSpeedMax": 0.9,
+
+
+			"ChaseAngleTimeMin": 0.15,
+			"ChaseAngleTimeMax": 0.50,
+			"ChaseAngleMinRange": 50,
+
+			"DetectRangeMin": 30000,
+			"DetectRangeMax": 40200,
+
+			"FocusRangeMin": 15000,
+			"FocusRangeMax": 30200,
+
+			"FocusTimeMin": 5.0,
+			"FocusTimeMax": 60.0,
+
+			"TurnAngleMin": 30,
+			"TurnAngleMax": 60,
+
+			"TurnSpeedMin": 0.6,
+			"TurnSpeedMax": 0.9,
+
+			"TurnPauseMin": 0.1,
+			"TurnPauseMax": 0.2,
+
+			"CloseAttackRangeMin": 11,
+			"CloseAttackRangeMax": 13,
+
+			"FarAttackMinRangeMin": 10,
+			"FarAttackMinRangeMax": 20,
+
+			"FarAttackMaxRangeMin": 30,
+			"FarAttackMaxRangeMax": 400,
+
+			"FarAttackCooldownMin": 1.0,
+			"FarAttackCooldownMax": 6.0,
+
+			"AttackWaitMin": 0.5,
+			"AttackWaitMax": 0.5,
+
+			"AttackPauseMin": 0.1,
+			"AttackPauseMax": 0.5,
+
+			"ActionPauseMin": 0.1,
+			"ActionPauseMax": 0.5,
+
+			"ChaseAngleMinRangeMin": 20,
+			"ChaseAngleMinRangeMax": 60,
+			"AttackSpeedMultiplierMin": 0.5,
+			"AttackSpeedMultiplierMax": 1.0
+		},
+		"Normal": {
+			"FocusTimeMin": 5.0,
+			"FocusTimeMax": 100.0
+		},
+		"Hard": {
+			"TurnPause": 0.3,
+			"AttackWait": 0.3,
+			"AttackPause": 0.3,
+			"ActionPause": 0.3,
+			"RotateSpeed": 2.0,
+			"AttackSpeedMultiplier": 1.1
+		},
+		"Abnormal": {
+			"TurnPause": 0.2,
+			"AttackWait": 0.2,
+			"AttackPause": 0.2,
+			"ActionPause": 0.2,
+			"RotateSpeed": 4.0,
+			"WalkSpeedBase": 10.0,
+			"RunSpeedBase": 20.0,
+			"AttackSpeedMultiplier": 1.2
+		}
+	},
+	"Jumper": {
+		"Default": {
+			"Name": "Jumper",
+			"IsRun": true,
+			"FarAttackMaxRange": 100,
+			"Attacks": {
+				"AttackGrab*": 0.1,
+				"AttackBite*": 0.1,
+				"AttackHit*": 0.1,
+				"AttackPunchCombo": 0.1,
+				"AttackKick": 0.1,
+				"AttackStomp": 0.1,
+				"AttackJump": 0.5
+			},
+			"TurnAngleMin": 30,
+			"TurnAngleMax": 50,
+
+			"TurnSpeedMin": 4.3,
+			"TurnSpeedMax": 6.0,
+
+			"TurnPauseMin": 0.001,
+			"TurnPauseMax": 1.2
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0
+		},
+		"Easy": {
+			"TurnPause": 1.0,
+			"AttackWait": 1.0,
+			"AttackPause": 1.0,
+			"ActionPause": 1.0,
+			"AttackSpeedMultiplier": 0.8
+		},
+		"Normal": {
+		},
+		"Hard": {
+			"TurnPause": 0.3,
+			"AttackWait": 0.3,
+			"AttackPause": 0.3,
+			"ActionPause": 0.3,
+			"RotateSpeed": 2.0,
+			"AttackSpeedMultiplier": 1.1
+		},
+		"Abnormal": {
+			"TurnPause": 0.2,
+			"AttackWait": 0.2,
+			"AttackPause": 0.2,
+			"ActionPause": 0.2,
+			"RotateSpeed": 4.0,
+			"WalkSpeedBase": 10.0,
+			"RunSpeedBase": 20.0,
+			"AttackSpeedMultiplier": 1.2
+		}
+	},
+	"Crawler": {
+		"Default": {
+			"Name": "Crawler",
+			"IsRun": true,
+			"AttackWait": 0,
+			"FarAttackMaxRange": 100,
+			"IsCrawler": true,
+			"ActionPause": 2.0,
+			"TurnPause": 1.0,
+			"TurnSpeed": 1.0,
+			"AttackPause": 2.0,
+			"RotateSpeed": 1.0,
+			"Attacks": {
+				"AttackJumpCrawler": 0.1
+			}
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0
+		},
+		"Easy": {
+			"TurnPause": 1.5,
+			"AttackPause": 1.5,
+			"ActionPause": 1.5,
+			"RunSpeedBase": 6
+		},
+		"Normal": {
+			"ChaseAngleTimeMin": 0.15,
+			"ChaseAngleTimeMax": 0.50,
+			"ChaseAngleMinRange": 50,
+
+			"DetectRangeMin": 30000,
+			"DetectRangeMax": 50200,
+
+			"FocusRangeMin": 1500,
+			"FocusRangeMax": 2020,
+
+			"FocusTimeMin": 1.0,
+			"FocusTimeMax": 1.3,
+
+			"TurnAngleMin": 30,
+			"TurnAngleMax": 50,
+
+			"TurnSpeedMin": 4.3,
+			"TurnSpeedMax": 6.0,
+
+			"TurnPauseMin": 0.001,
+			"TurnPauseMax": 1.2,
+
+			"CloseAttackRangeMin": 11,
+			"CloseAttackRangeMax": 13,
+
+			"FarAttackMinRangeMin": 10,
+			"FarAttackMinRangeMax": 20,
+
+			"FarAttackMaxRangeMin": 30,
+			"FarAttackMaxRangeMax": 400,
+
+			"FarAttackCooldownMin": 1.0,
+			"FarAttackCooldownMax": 6.0,
+
+			"AttackWaitMin": 0.05,
+			"AttackWaitMax": 0.5,
+
+			"AttackPauseMin": 0.01,
+			"AttackPauseMax": 0.5,
+
+			"ActionPauseMin": 0.01,
+			"ActionPauseMax": 0.5,
+
+			"ChaseAngleMinRangeMin": 20,
+			"ChaseAngleMinRangeMax": 60,
+
+			"WalkSpeedBase": 5.0,
+			"WalkSpeedPerLevel": 1.0,
+			"RunSpeedBase": 15.0,
+			"RunSpeedPerLevel": 5.0,
+			"JumpForce": 150,
+			"RotateSpeed": 1.6,
+
+			"RunAnimationMin": 1,
+			"RunAnimationMax": 2,
+
+			"WalkSpeedBaseMin": 15.0,
+			"WalkSpeedBaseMax": 35.0,
+
+			"WalkSpeedPerLevelMin": 1.0,
+			"WalkSpeedPerLevelMax": 1.5,
+
+			"RunSpeedBaseMin": 30.0,
+			"RunSpeedBaseMax": 50.0,
+
+			"RunSpeedPerLevelMin": 5.0,
+			"RunSpeedPerLevelMax": 7.0,
+
+			"JumpForceMin": 150,
+			"JumpForceMax": 300,
+
+			"RotateSpeedMin": 1.6,
+			"RotateSpeedMax": 3.0
+		},
+		"Hard": {
+			"TurnPause": 0.5,
+			"AttackPause": 0.5,
+			"ActionPause": 0.5,
+			"RotateSpeed": 2.0,
+			"RunSpeedBase": 15
+		},
+		"Abnormal": {
+			"TurnPause": 0.2,
+			"AttackPause": 0.2,
+			"ActionPause": 0.2,
+			"RotateSpeed": 4.0,
+			"TurnSpeed": 2.0,
+			"RunSpeedBase": 20.0
+		}
+	},
+	"Punk": {
+		"Default": {
+			"Name": "Punk",
+			"IsRun": true,
+			"FocusTime": 0.5,
+			"TurnPause": 0.2,
+			"TurnSpeed": 2.5,
+			"TurnAngle": 110,
+			"RotateSpeed": 3.0,
+			"AttackWait": 0,
+			"RunAnimation": 2,
+			"Attacks": {
+				"AttackPunchCombo": 0.1,
+				"AttackSlap*": 0.1,
+				"AttackBrush*": 0.1,
+				"AttackSwing*": 0.1,
+				"AttackKick": 0.1,
+				"AttackStomp": 0.1
+			}
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0
+		},
+		"Easy": {
+			"TurnPause": 0.5,
+			"AttackPause": 1.0,
+			"ActionPause": 1.0,
+			"AttackSpeedMultiplier": 0.8
+		},
+		"Normal": {
+		},
+		"Hard": {
+			"TurnPause": 0.3,
+			"AttackPause": 0.3,
+			"ActionPause": 0.3,
+			"RotateSpeed": 2.0,
+			"AttackSpeedMultiplier": 1.1
+		},
+		"Abnormal": {
+			"TurnPause": 0.1,
+			"AttackPause": 0.1,
+			"ActionPause": 0.1,
+			"RotateSpeed": 4.0,
+			"WalkSpeedBase": 10.0,
+			"RunSpeedBase": 20.0,
+			"AttackSpeedMultiplier": 1.2
+		}
+	},
+	"Thrower": {
+		"Default": {
+			"Name": "Thrower",
+			"IsRun": true,
+			"FarAttackMaxRange": 160,
+			"Attacks": {
+				"AttackGrab*": 0.1,
+				"AttackBite*": 0.1,
+				"AttackHit*": 0.1,
+				"AttackPunchCombo": 0.1,
+				"AttackKick": 0.1,
+				"AttackStomp": 0.1,
+				"AttackRockThrow": 0.5
+			}
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0
+		},
+		"Easy": {
+			"TurnPause": 1.0,
+			"AttackWait": 1.0,
+			"AttackPause": 1.0,
+			"ActionPause": 1.0,
+			"AttackSpeedMultiplier": 0.8
+		},
+		"Normal": {
+
+		},
+		"Hard": {
+			"TurnPause": 0.3,
+			"AttackWait": 0.5,
+			"AttackPause": 0.3,
+			"ActionPause": 0.3,
+			"RotateSpeed": 2.0
+		},
+		"Abnormal": {
+			"TurnPause": 0.2,
+			"AttackWait": 0.3,
+			"AttackPause": 0.2,
+			"ActionPause": 0.2,
+			"RotateSpeed": 4.0,
+			"WalkSpeedBase": 10.0,
+			"RunSpeedBase": 20.0
+		}
+	},
+
+
+	"Aberrant": {
+		"Default": {
+			"Name": "Aberrant",
+			"IsRun": true,
+
+			"FarAttackMaxRange": 200,
+			"Attacks": {
+				"AttackGrab*": 0.1,
+
+
+				"AttackJumpCrawler": 0.1,
+				"AttackJump": 0.1
+
+			},
+
+			"ChaseAngleMinRangeMin": 20,
+			"ChaseAngleMinRangeMax": 60,
+
+
+
+			"AttackWaitMin": 0.05,
+			"AttackWaitMax": 0.2,
+
+			"AttackPauseMin": 0.01,
+			"AttackPauseMax": 0.2,
+
+
+			"ChaseAngleTimeMin": 0.015,
+			"ChaseAngleTimeMax": 0.050,
+			"ChaseAngleMinRange": 100,
+
+			"DetectRangeMin": 80000,
+			"DetectRangeMax": 80200,
+
+			"FocusRangeMin": 50
+			"FocusRangeMax": 75
+
+			"FocusTimeMin": 1.0,
+			"FocusTimeMax": 3.0,
+
+			"TurnAngleMin": 30,
+			"TurnAngleMax": 50,
+
+			"TurnSpeedMin": 4.3,
+			"TurnSpeedMax": 6.0,
+
+			"TurnPauseMin": 0.001,
+			"TurnPauseMax": 1.2,
+
+
+
+
+
+			"RunAnimationMin": 1.5,
+			"RunAnimationMax": 2.7,
+
+			"WalkSpeedBaseMin": 30.0,
+			"WalkSpeedBaseMax": 60.0,
+
+			"WalkSpeedPerLevelMin": 1.0,
+			"WalkSpeedPerLevelMax": 2.0,
+
+			"RunSpeedBaseMin": 45.0,
+			"RunSpeedBaseMax": 75.0,
+
+			"RunSpeedPerLevelMin": 4.0,
+			"RunSpeedPerLevelMax": 6.0,
+
+			"JumpForceMin": 150,
+			"JumpForceMax": 400,
+
+			"RotateSpeedMin": 1.6,
+			"RotateSpeedMax": 10,
+
+
+
+			"AttackSpeedMultiplierMin": 1.5,
+			"AttackSpeedMultiplierMax": 2.1
+
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0
+		},
+		"Easy": {
+			"TurnPause": 1.0,
+			"AttackWait": 1.0,
+			"AttackPause": 1.0,
+			"ActionPause": 1.0,
+			"AttackSpeedMultiplier": 0.8
+		},
+		"Normal": {
+
+		},
+		"Hard": {
+			"TurnPause": 0.3,
+			"AttackWait": 0.5,
+			"AttackPause": 0.3,
+			"ActionPause": 0.3,
+			"RotateSpeed": 2.0
+		},
+		"Abnormal": {
+			"TurnPause": 0.2,
+			"AttackWait": 0.3,
+			"AttackPause": 0.2,
+			"ActionPause": 0.2,
+			"RotateSpeed": 4.0,
+			"WalkSpeedBase": 10.0,
+			"RunSpeedBase": 20.0
+		}
+	},
+
+	"Strider": {
+		"Default": {
+			"Name": "Strider",
+			"IsRun": true,
+
+			"FarAttackMaxRange": 800,
+			"Attacks": {
+				"AttackGrab*": 0.1,
+				"AttackPunchCombo": 0.1,
+				"AttackSlam": 0.1,
+				"AttackKick": 0.1,
+				"AttackStomp": 0.1,
+				"AttackBite*": 0.1,
+				"AttackSwing*": 0.1,
+				"AttackHit*": 0.1,
+				"AttackJumpCrawler": 0.1,
+				"AttackJump": 0.1,
+				"AttackBrush*": 0.1
+
+			},
+
+			"ChaseAngleMinRangeMin": 3,
+			"ChaseAngleMinRangeMax": 5,
+
+
+
+			"AttackWaitMin": 0.003,
+			"AttackWaitMax": 0.02,
+
+			"AttackPauseMin": 0.001,
+			"AttackPauseMax": 0.02,
+
+
+			"ChaseAngleTimeMin": 0.015,
+			"ChaseAngleTimeMax": 0.050,
+			"ChaseAngleMinRange": 100,
+
+			"DetectRangeMin": 80000,
+			"DetectRangeMax": 80200,
+
+			"FocusRangeMin": 75000,
+			"FocusRangeMax": 80000,
+
+			"FocusTimeMin": 1,
+			"FocusTimeMax": 2,
+
+			"TurnAngleMin": 25,
+			"TurnAngleMax": 40,
+
+			"TurnSpeedMin": 15.3,
+			"TurnSpeedMax": 16.0,
+
+			"TurnPauseMin": 0.01,
+			"TurnPauseMax": 0.02,
+
+
+
+
+
+			"RunAnimationMin": 4.5,
+			"RunAnimationMax": 6.7,
+
+			"WalkSpeedBaseMin": 30.0,
+			"WalkSpeedBaseMax": 60.0,
+
+			"WalkSpeedPerLevelMin": 1.0,
+			"WalkSpeedPerLevelMax": 2.0,
+
+			"RunSpeedBaseMin": 85.0,
+			"RunSpeedBaseMax": 115.0,
+
+			"RunSpeedPerLevelMin": 4.0,
+			"RunSpeedPerLevelMax": 6.0,
+
+			"JumpForceMin": 350,
+			"JumpForceMax": 800,
+
+			"RotateSpeedMin": 4.6,
+			"RotateSpeedMax": 10,
+
+
+
+			"AttackSpeedMultiplierMin": 1.6,
+			"AttackSpeedMultiplierMax": 1.8,
+			"TurnSpeed": 3.3
+
+
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0
+		},
+		"Easy": {
+			"TurnPause": 1.0,
+			"AttackWait": 1.0,
+			"AttackPause": 1.0,
+			"ActionPause": 1.0,
+			"AttackSpeedMultiplier": 0.8
+		},
+		"Normal": {
+
+		},
+		"Hard": {
+			"TurnPause": 0.3,
+			"AttackWait": 0.5,
+			"AttackPause": 0.3,
+			"ActionPause": 0.3,
+			"RotateSpeed": 2.0
+		},
+		"Abnormal": {
+			"TurnPause": 0.2,
+			"AttackWait": 0.3,
+			"AttackPause": 0.2,
+			"ActionPause": 0.2,
+			"RotateSpeed": 4.0,
+			"WalkSpeedBase": 10.0,
+			"RunSpeedBase": 20.0
+		}
+	},
+	"Twin": {
+		"Default": {
+			"Name": "Twin",
+			"IsRun": true,
+
+			"FarAttackMaxRange": 300,
+			"Attacks": {
+
+
+
+				"AttackKick": 0.1,
+				"AttackStomp": 0.1,
+				"AttackBite*": 0.1,
+
+
+				"AttackJumpCrawler": 0.1,
+				"AttackJump": 0.1,
+				"AttackBrush*": 0.1,
+				"AttackBellyFlop": 0.5
+
+			},
+			"HealthMin": 300,
+			"HealthMax": 450,
+
+			"ChaseAngleMinRangeMin": 3,
+			"ChaseAngleMinRangeMax": 5,
+
+
+
+			"AttackWaitMin": 0.03,
+			"AttackWaitMax": 0.06,
+
+			"AttackPauseMin": 0.05,
+			"AttackPauseMax": 0.05,
+
+
+			"ChaseAngleTimeMin": 0.015,
+			"ChaseAngleTimeMax": 0.050,
+			"ChaseAngleMinRange": 100,
+
+			"DetectRangeMin": 80000,
+			"DetectRangeMax": 80200,
+
+			"FocusRangeMin": 75000,
+			"FocusRangeMax": 80200,
+
+			"FocusTimeMin": 1.0,
+			"FocusTimeMax": 1.4,
+
+			"TurnAngleMin": 35,
+			"TurnAngleMax": 60,
+
+			"TurnSpeedMin": 5.3,
+			"TurnSpeedMax": 6.0,
+
+			"TurnPauseMin": 0.01,
+			"TurnPauseMax": 0.2,
+
+
+
+
+
+			"RunAnimationMin": 2.5,
+			"RunAnimationMax": 3.7,
+
+			"WalkSpeedBaseMin": 30.0,
+			"WalkSpeedBaseMax": 60.0,
+
+			"WalkSpeedPerLevelMin": 1.0,
+			"WalkSpeedPerLevelMax": 2.0,
+
+			"RunSpeedBaseMin": 80.0,
+			"RunSpeedBaseMax": 105.0,
+
+			"RunSpeedPerLevelMin": 4.0,
+			"RunSpeedPerLevelMax": 6.0,
+
+			"JumpForceMin": 50,
+			"JumpForceMax": 250,
+
+			"RotateSpeedMin": 4.6,
+			"RotateSpeedMax": 10,
+
+
+
+			"AttackSpeedMultiplierMin": 1.9,
+			"AttackSpeedMultiplierMax": 1.9,
+			"TurnSpeed": 2.6
+
+
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0
+		},
+		"Easy": {
+			"TurnPause": 1.0,
+			"AttackWait": 1.0,
+			"AttackPause": 1.0,
+			"ActionPause": 1.0,
+			"AttackSpeedMultiplier": 0.8
+		},
+		"Normal": {
+
+		},
+		"Hard": {
+			"TurnPause": 0.3,
+			"AttackWait": 0.5,
+			"AttackPause": 0.3,
+			"ActionPause": 0.3,
+			"RotateSpeed": 2.0
+		},
+		"Abnormal": {
+			"TurnPause": 0.2,
+			"AttackWait": 0.3,
+			"AttackPause": 0.2,
+			"ActionPause": 0.2,
+			"RotateSpeed": 4.0,
+			"WalkSpeedBase": 10.0,
+			"RunSpeedBase": 20.0
+		}
+	},
+	"Twitcher": {
+		"Default": {
+			"Name": "Twitcher",
+			"IsRun": true,
+
+			"FarAttackMaxRange": 800,
+			"Attacks": {
+				"AttackGrab*": 0.1,
+				"AttackPunchCombo": 0.1,
+				"AttackSlam": 0.1,
+				"AttackKick": 0.1,
+				"AttackStomp": 0.1,
+				"AttackBite*": 0.1,
+				"AttackSwing*": 0.1,
+				"AttackHit*": 0.1,
+				"AttackJumpCrawler": 0.1,
+				"AttackJump": 0.1,
+				"AttackBrush*": 0.1
+
+			},
+
+			"ChaseAngleMinRangeMin": 0.4,
+			"ChaseAngleMinRangeMax": 0.6,
+
+
+
+			"AttackWaitMin": 0.003,
+			"AttackWaitMax": 0.02,
+
+			"AttackPauseMin": 0.001,
+			"AttackPauseMax": 0.02,
+
+
+			"ChaseAngleTimeMin": 0.050,
+			"ChaseAngleTimeMax": 0.050,
+			"ChaseAngleMinRange": 100,
+
+			"DetectRangeMin": 80000,
+			"DetectRangeMax": 80200,
+
+			"FocusRangeMin": 75000,
+			"FocusRangeMax": 80200,
+
+			"FocusTimeMin": 1.0,
+			"FocusTimeMax": 1.4,
+
+			"TurnAngleMin": 14,
+			"TurnAngleMax": 15,
+
+			"TurnSpeedMin": 35.3,
+			"TurnSpeedMax": 36.0,
+
+			"TurnPauseMin": 0.001,
+			"TurnPauseMax": 0.002,
+
+
+
+
+
+			"RunAnimationMin": 9.5,
+			"RunAnimationMax": 10.7,
+
+			"WalkSpeedBaseMin": 30.0,
+			"WalkSpeedBaseMax": 60.0,
+
+			"WalkSpeedPerLevelMin": 1.0,
+			"WalkSpeedPerLevelMax": 2.0,
+
+			"RunSpeedBaseMin": 80.0,
+			"RunSpeedBaseMax": 95.0,
+
+			"RunSpeedPerLevelMin": 4.0,
+			"RunSpeedPerLevelMax": 6.0,
+
+			"JumpForceMin": 150,
+			"JumpForceMax": 300,
+
+			"RotateSpeedMin": 4.6,
+			"RotateSpeedMax": 15,
+
+
+
+			"AttackSpeedMultiplierMin": 1.3,
+			"AttackSpeedMultiplierMax": 1.4,
+			"TurnSpeed": 10.3
+
+
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0
+		},
+		"Easy": {
+			"TurnPause": 1.0,
+			"AttackWait": 1.0,
+			"AttackPause": 1.0,
+			"ActionPause": 1.0,
+			"AttackSpeedMultiplier": 0.8
+		},
+		"Normal": {
+
+		},
+		"Hard": {
+			"TurnPause": 0.3,
+			"AttackWait": 0.5,
+			"AttackPause": 0.3,
+			"ActionPause": 0.3,
+			"RotateSpeed": 2.0
+		},
+		"Abnormal": {
+			"TurnPause": 0.2,
+			"AttackWait": 0.3,
+			"AttackPause": 0.2,
+			"ActionPause": 0.2,
+			"RotateSpeed": 4.0,
+			"WalkSpeedBase": 10.0,
+			"RunSpeedBase": 20.0
+		}
+	},
+	"Sedentary": {
+		"Default": {
+			"Name": "Sedentary",
+			"IsRun": false,
+
+			"FarAttackMaxRange": 800,
+			"Attacks": {
+
+				"AttackJumpCrawler": 0.1,
+				"AttackJump": 0.1,
+				"AttackSlam": 0.1,
+				"AttackKick": 0.1,
+				"AttackStomp": 0.1,
+				"AttackBite*": 0.1,
+				"AttackSwing*": 0.1,
+				"AttackHit*": 0.1
+
+			},
+
+			"ChaseAngleMinRangeMin": 0.4,
+			"ChaseAngleMinRangeMax": 0.6,
+			"HealthMin": 1000,
+			"HealthMax": 1500,
+
+
+			"AttackWaitMin": 0.0003,
+			"AttackWaitMax": 0.0002,
+
+			"AttackPauseMin": 0.001,
+			"AttackPauseMax": 0.02,
+
+
+			"ChaseAngleTimeMin": 0.050,
+			"ChaseAngleTimeMax": 0.050,
+			"ChaseAngleMinRange": 100,
+
+			"DetectRangeMin": 80000,
+			"DetectRangeMax": 80200,
+
+			"FocusRangeMin": 75000,
+			"FocusRangeMax": 80200,
+
+			"FocusTimeMin": 1.1,
+			"FocusTimeMax": 1.4,
+
+			"TurnAngleMin": 14,
+			"TurnAngleMax": 15,
+
+			"TurnSpeedMin": 35.3,
+			"TurnSpeedMax": 36.0,
+
+			"TurnPauseMin": 0.001,
+			"TurnPauseMax": 0.002,
+
+
+
+
+
+			"RunAnimationMin": 9.5,
+			"RunAnimationMax": 10.7,
+
+			"WalkSpeedBaseMin": 15.0,
+			"WalkSpeedBaseMax": 25.0,
+
+			"WalkSpeedPerLevelMin": 1.0,
+			"WalkSpeedPerLevelMax": 2.0,
+
+			"RunSpeedBaseMin": 80.0,
+			"RunSpeedBaseMax": 95.0,
+
+			"RunSpeedPerLevelMin": 4.0,
+			"RunSpeedPerLevelMax": 6.0,
+
+			"JumpForceMin": 350,
+			"JumpForceMax": 400,
+
+			"RotateSpeedMin": 2.6,
+			"RotateSpeedMax": 3,
+
+
+
+			"AttackSpeedMultiplierMin": 1.3,
+			"AttackSpeedMultiplierMax": 1.4,
+			"TurnSpeed": 3.3
+
+
+		},
+		"Training": {
+			"DetectRange": 0,
+			"FocusRange": 0
+		},
+		"Easy": {
+			"TurnPause": 1.0,
+			"AttackWait": 1.0,
+			"AttackPause": 1.0,
+			"ActionPause": 1.0,
+			"AttackSpeedMultiplier": 0.8
+		},
+		"Normal": {
+
+		},
+		"Hard": {
+			"TurnPause": 0.3,
+			"AttackWait": 0.5,
+			"AttackPause": 0.3,
+			"ActionPause": 0.3,
+			"RotateSpeed": 2.0
+		},
+		"Abnormal": {
+			"TurnPause": 0.2,
+			"AttackWait": 0.3,
+			"AttackPause": 0.2,
+			"ActionPause": 0.2,
+			"RotateSpeed": 4.0,
+			"WalkSpeedBase": 10.0,
+			"RunSpeedBase": 20.0
+		}
+	}
+}
+
+	

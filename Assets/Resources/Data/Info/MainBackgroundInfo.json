@@ -1,0 +1,112 @@
+{
+	"EventBackgrounds": [
+	],
+	"MainBackgrounds": [
+
+		"OzanMainMenu1",
+		"OzanMainMenu2",
+		"OzanMainMenu3",
+		"OzanMainMenu4",
+		"OzanMainMenu5",
+		"OzanMainMenu6",
+		"OzanMainMenu7",
+		"OzanMainMenu8",
+		"OzanMainMenu9",
+		"OzanMainMenu10",
+		"OzanMainMenu11",
+		"TimMainMenu1",
+		"LichtMainMenu1",
+		"RitisMainMenu2",
+		"RitisMainMenu3",
+		"NicoMainMenu"
+	],
+	"LoadingBackgrounds": [
+
+
+
+
+		"MainBackground30Texture",
+		"MainBackground31Texture",
+		///"MainBackground32Texture",
+		///"MainBackground33Texture",
+		"MainBackground34Texture",
+		"MainBackground35Texture",
+
+		"MainBackground37Texture",
+
+
+		"MainBackground40Texture",
+		"MainBackground41Texture",
+		"MainBackground42Texture",
+		///"MainBackground43Texture",
+		"MainBackground44Texture",
+		"MainBackground45Texture",
+
+
+
+
+
+
+		"HawkLoadingMenu5",
+		"HawkLoadingMenu6",
+		"HawkLoadingMenu7",
+		"HawkLoadingMenu8",
+		"HawkLoadingMenu9",
+		"HawkLoadingMenu10",
+		"HawkLoadingMenu11",
+		"HawkLoadingMenu12",
+		"HawkLoadingMenu13",
+		"HawkLoadingMenu14",
+		"HawkLoadingMenu15",
+		"HawkLoadingMenu16",
+		"HawkLoadingMenu17",
+
+		"OzanLoadingMenu1",
+		"OzanLoadingMenu2",
+		"OzanLoadingMenu3",
+		"OzanLoadingMenu4",
+
+		"LichtLoadingMenu1",
+
+		"DisclosedInfo1",
+		"DisclosedInfo2",
+		"DisclosedInfo3",
+		"DisclosedInfo4",
+		"DisclosedInfo5",
+		"DisclosedInfo6",
+
+		"RitisMainMenu1",
+		"TimLoadingMenu1",
+		"TimLoadingMenu2",
+		"DetteLoadingMenu1"
+
+	],
+	"AllBackgrounds": 73,
+	"Tips": [
+		"You can attack a titan's legs to cripple them.",
+		"You can blind a titan by attacking the eyes.",
+		"Use the N key to emote.",
+		"Use the F key to use items such as flares.",
+		"Make sure to check your keybinds for potentially useful abilities",
+		"Be careful, one titan is dangerous a horde is death.",
+		"Always keep your comrades within earshot or atleast line of sight for flares.",
+		"Defend wagons and cannons as both can be destroyed by titans",
+		"Stay vigilant and subjugate the titan threat to humanity!",
+		"May the walls protect you.",
+		"Keep an eye out for abnormals, they may target one player specifically and that player could be you.",
+		"In a dire situation both thrown blades and thunderspears can be parried with a melee attack",
+		"Make sure to use the titans weak points to your advantage, sometimes the nape is too risky.",
+		"Be cautious of the location of your horse, if lost the whistle can be used to call them.",
+		"Defend your horses with your life, if PVP is enabled they can be killed as well.",
+		"The new cannons have munition types, check your keybinds to swap them.",
+		"Enjoy the present as you never know when it will no longer be here.",
+		"If you hear a howl in the night, find a high place and hide",
+		"Check your stats and items with right alt",
+		"The MC has access to a menu with a variety of options, access it with right control",
+		"Sometimes its best to be hidden, with realism on the hood hides player names.",
+		"I don't know much at all, not in the grand scheme of things",
+		"Keep an eye out for blood stains, what caused them may still be around.",
+		"If your horse dies you can always get on wagons or your comrades horse."
+
+	]
+}

@@ -1,0 +1,182 @@
+class Main
+{   
+    Description = "Navigate the obstacle course as quickly as possible. Move towards green checkpoints and avoid the red kill regions.";
+    StartDelay = 10.0;
+    EndAfterWin = true;
+    InfiniteLives = true;
+    Lives = 0;
+    RespawnDelay = 1.5;
+
+    _CurrentNumberOfLaps = 1;
+    _NumberOfLapsTotal = 1;
+    _CanFinish = true;
+    _started = false;
+    _startBarriers = null;
+    _dieTimeLeft = 0.0;
+    _livesLeft = 0;
+    _finished = false;
+    _hasSpawned = false;
+    _lapText = "";
+    CheckpointList = List();
+
+    function OnGameStart()
+    {
+        self._startBarriers = Map.FindMapObjectsByTag("RacingStartBarrier");
+        self._livesLeft = self.Lives;
+        Network.MyPlayer.SetCustomProperty("NoLivesLeft", false);
+        Network.MyPlayer.SetCustomProperty("FinishTime", "None");
+        Game.SetPlaylist("Racing");
+        UI.SetScoreboardHeader("Finish Time");
+        UI.SetScoreboardProperty("FinishTime");
+        if (self._NumberOfLapsTotal > 1)
+        {
+            self._CanFinish = false;
+            CheckpointObjects = Map.FindMapObjectsByName("Racing Checkpoint Region");
+            for (object in CheckpointObjects)
+            {
+                if (object.GetComponent("RacingCheckpointRegion").LapCheckpoint)
+                {
+                    self.CheckpointList.Add(object.GetComponent("RacingCheckpointRegion"));
+                }
+            }
+            self._lapText = "Lap " + Convert.ToString(self._CurrentNumberOfLaps)+ "/" + Convert.ToString(self._NumberOfLapsTotal);
+        }
+    }
+
+    function FinishRace(human)
+    {
+        if (!self._finished && self._CurrentNumberOfLaps == self._NumberOfLapsTotal && self._CanFinish)
+        {
+            finishTime = String.FormatFloat(Time.GameTime - self.StartDelay, 2);
+            Game.PrintAll(human.Player.Name + " finished at " + finishTime);
+            Network.MyPlayer.SetCustomProperty("FinishTime", finishTime);
+            Network.SendMessage(Network.MasterClient, "Finish");
+            self._finished = true;
+        }
+        elif (self._CurrentNumberOfLaps < self._NumberOfLapsTotal && self._CanFinish)
+        {
+            self._CanFinish = false;
+            self._CurrentNumberOfLaps += 1;
+            self._lapText = "Lap " + Convert.ToString(self._CurrentNumberOfLaps)+ "/" + Convert.ToString(self._NumberOfLapsTotal);
+            for (checkpoint in self.CheckpointList)
+            {
+                checkpoint._Cleared = false;
+            }
+        }
+    }
+
+    function OnNetworkMessage(sender, message)
+    {
+        if (Network.IsMasterClient && message == "Finish" && !Game.IsEnding)
+        {
+            finishTime = sender.GetCustomProperty("FinishTime");
+            if (self.EndAfterWin)
+            {
+                UI.SetLabelAll("MiddleCenter", sender.Name + " has won the race in " + finishTime + " seconds!");
+                Game.End(10);
+            }
+            else
+            {
+                UI.SetLabelForTimeAll("MiddleCenter", sender.Name + " finished in " + finishTime + " seconds!", 5.0);
+            }
+        }
+    }
+
+    function OnCharacterDie(victim, killer, killerName)
+    {
+        if (victim.IsMainCharacter)
+        {
+            self._dieTimeLeft = self.RespawnDelay;
+        }
+    }
+
+
+    function OnTick()
+    {
+        if (!self._started)
+        {
+            Game.SpawnPlayer(Network.MyPlayer, false);
+            UI.SetLabel("TopCenter", "Race Starts In: " + String.FormatFloat(self.StartDelay - Time.GameTime, 2));
+            if (Time.GameTime > self.StartDelay)
+            {
+                self._started = true;
+                for (barrier in self._startBarriers)
+                {
+                    barrier.Active = false;
+                }
+                if (Network.MyPlayer.Status == "Alive")
+                {
+                    self._hasSpawned = true;
+                }
+            }
+        }
+        else
+        {
+            if (!self.InfiniteLives)
+            {
+                UI.SetLabel("TopCenter", "Racing Time: " + String.FormatFloat(Time.GameTime - self.StartDelay, 2) + ", Lives: " + Convert.ToString(self._livesLeft)
+                + String.Newline + self._lapText);
+            }
+            else
+            {
+                UI.SetLabel("TopCenter", "Racing Time: " + String.FormatFloat(Time.GameTime - self.StartDelay, 2) + String.Newline + self._lapText);
+            }
+            self._dieTimeLeft = self._dieTimeLeft - Time.TickTime;
+            if (!self._hasSpawned && Network.MyPlayer.Status == "Dead")
+            {
+                Game.SpawnPlayer(Network.MyPlayer, false);
+                self._hasSpawned = true;
+            }
+            elif (Network.MyPlayer.Status == "Dead" && self._dieTimeLeft <= 0.0)
+            {
+                if (self._livesLeft > 0 || self.InfiniteLives)
+                {
+                    Game.SpawnPlayer(Network.MyPlayer, false);
+                    self._livesLeft = self._livesLeft - 1;
+                }
+                else
+                {
+                    Network.MyPlayer.SetCustomProperty("NoLivesLeft", true);
+                }
+            }
+            if (Network.IsMasterClient && !Game.IsEnding)
+            {
+                anyPlayerAlive = false;
+                anyPlayerSpawned = false;
+                for (player in Network.Players)
+                {
+                    if (player.Status != "Spectating")
+                    {
+                        anyPlayerSpawned = true;
+                        noLivesLeft = player.GetCustomProperty("NoLivesLeft");
+                        if (player.Status == "Alive" || (noLivesLeft != null && !noLivesLeft))
+                        {
+                            anyPlayerAlive = true;
+                        }
+                    }
+                }
+                if (anyPlayerSpawned && !anyPlayerAlive)
+                {
+                    UI.SetLabelAll("MiddleCenter", "All players have no lives left.");
+                    Game.End(10);
+                }
+            }
+        }
+    }
+
+    function CheckpointStatus()
+    {
+        totalCleared = 0;
+        for (Checkpoint in self.CheckpointList)
+        {
+            if (Checkpoint._Cleared)
+            {
+                totalCleared += 1;
+            }
+        }
+        if (totalCleared == self.CheckpointList.Count)
+        {
+            self._CanFinish = true;
+        }
+    }
+}
