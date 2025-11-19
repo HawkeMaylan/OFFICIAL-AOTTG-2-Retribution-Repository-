@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - FxTemporaire
+  - Speaker
+  - HookFollow
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - HawkHitboxCollision
+  - Water
+  - UI
+  - PostProcessing
+  - 
+  - NoCollision
+  - Hitbox
+  - Human
+  - TitanMovebox
+  - TitanPushbox
+  - Hurtbox
+  - Projectile
+  - ProjectileDetection
+  - CharacterDetection
+  - NPC
+  - Speakers
+  - Preview
+  - MapObjectMapObjects
+  - MapObjectProjectiles
+  - MapObjectCharacters
+  - MapObjectEntities
+  - MapObjectAll
+  - MapEditorObject
+  - MapEditorGizmo
+  - MinimapIcon
+  - Background
+  - MapObjectTitans
+  - MapObjectHumans
+  - Cannon
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
