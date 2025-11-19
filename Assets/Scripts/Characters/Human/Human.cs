@@ -1110,7 +1110,7 @@ namespace Characters
 
         public void FireFlare(Color flareColor)
         {
-            if (State == HumanState.FiringFlare || State == HumanState.EmoteAction || State == HumanState.SpecialAction || State == HumanState.SpecialAttack || State == HumanState.Attack || State == HumanState.GroundDodge || Dead)
+            if (State == HumanState.FiringFlare || State == HumanState.EmoteAction || State == HumanState.SpecialAction || State == HumanState.SpecialAttack || State == HumanState.Attack || State == HumanState.GroundDodge|| State == HumanState.Grab || Dead)
                 return;
 
             if (Grounded)
