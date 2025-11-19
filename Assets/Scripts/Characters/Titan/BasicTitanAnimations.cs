@@ -14,7 +14,15 @@
 
         public string WeirdRunTest => "TestRun";
         public string TitanSlumpedWalk => "TitanSlumpedWalk";
+
+        public string ForwardSlump => "ForwardSlump";
+
+        public string TestSeizure => "TestSeizure";
+
         public string NormalWalk => "Amarture_VER2|run.walk";
+
+        public string TestWalk => "TestWalk";
+        
 
         // Remove the virtual Walk property and use a field instead
         private string _walkAnimation = "Amarture_VER2|run.walk"; // Default

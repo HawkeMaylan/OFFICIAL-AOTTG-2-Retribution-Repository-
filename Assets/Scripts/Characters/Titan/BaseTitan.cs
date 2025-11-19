@@ -605,10 +605,14 @@ namespace Characters
     {
         { basicAnimations.NormalWalk, 0f },    // % chance
         { basicAnimations.WeirdRunTest, 0f },  
-        { basicAnimations.TitanSlumpedWalk, 100f }
+        { basicAnimations.TitanSlumpedWalk, 10f },
+        { basicAnimations.TestWalk, 100f }
+                
+        //{ basicAnimations.TestSeizure, 100f }
+        
                 
         // Add more animations as needed with their percentages
-    };
+        };
 
             string selectedWalk = SelectRandomAnimation(walkAnimationChances);
 
