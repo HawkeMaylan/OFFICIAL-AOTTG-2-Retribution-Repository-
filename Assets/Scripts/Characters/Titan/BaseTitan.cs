@@ -604,9 +604,13 @@ namespace Characters
             var walkAnimationChances = new Dictionary<string, float>
     {
         { basicAnimations.NormalWalk, 0f },    // % chance
-        { basicAnimations.WeirdRunTest, 0f },  
-        { basicAnimations.TitanSlumpedWalk, 10f },
-        { basicAnimations.TestWalk, 100f }
+        { basicAnimations.WeirdRunTest, 0f },
+        { basicAnimations.TitanSlumpedWalk, 0f },
+        { basicAnimations.TestWalk, 0f },
+        { basicAnimations.ForwardSlump, 0f },
+        { basicAnimations.BackwardsSlump, 100f }
+                
+                
                 
         //{ basicAnimations.TestSeizure, 100f }
         

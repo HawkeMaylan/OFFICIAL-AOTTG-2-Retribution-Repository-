@@ -17,6 +17,8 @@
 
         public string ForwardSlump => "ForwardSlump";
 
+        public string BackwardsSlump => "BackwardsSlump";
+
         public string TestSeizure => "TestSeizure";
 
         public string NormalWalk => "Amarture_VER2|run.walk";
