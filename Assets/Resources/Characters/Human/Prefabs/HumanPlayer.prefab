@@ -16694,6 +16694,7 @@ MonoBehaviour:
   - 
   - 
   CurrentSpecialIndex: 0
+  HawkMountable: {fileID: 0}
 --- !u!114 &11414280
 MonoBehaviour:
   m_ObjectHideFlags: 0

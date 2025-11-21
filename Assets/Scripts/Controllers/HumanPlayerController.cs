@@ -277,7 +277,7 @@ namespace Controllers
             UpdateDashRight(inMenu);
             UpdateDashLeft(inMenu);
             UpdateCycleSpecial(inMenu);
-           ///TEST ADDON FOR ANIMATION UpdateScream(inMenu);
+            ///TEST ADDON FOR ANIMATION UpdateScream(inMenu);
 
 
             bool canWeapon = _human.MountState == HumanMountState.None && !_illegalWeaponStates.Contains(_human.State) && !inMenu && !_human.Dead;
@@ -348,6 +348,12 @@ namespace Controllers
                     else if (_humanInput.HorseMount.GetKeyDown() && _human.Horse != null && _human.MountState == HumanMountState.None &&
                     Vector3.Distance(_human.Horse.Cache.Transform.position, _human.Cache.Transform.position) < 15f && !_human.HasDirection)
                         _human.MountHorse();
+
+
+                    else if (SettingsManager.InputSettings.Human.MountHawkObject.GetKeyDown())
+                    {
+                        ((Human)_human).MountHawkObject();
+                    }
                     else if (_humanInput.Dodge.GetKeyDown())
                     {
                         if (_human.HasDirection)
@@ -404,7 +410,7 @@ namespace Controllers
 
         void UpdateCycleSpecial(bool inMenu)
         {
-            if (Input.GetKeyDown(KeyCode.O)) 
+            if (Input.GetKeyDown(KeyCode.O))
             {
                 _human.CycleSpecial();
 
@@ -527,14 +533,14 @@ namespace Controllers
             {
                 if (_humanInput.DashUp.GetKeyDown())
                 {
-                    float angle = 90f; 
+                    float angle = 90f;
                     Vector3 direction = Vector3.up;
-                    _human.DashUp(angle, direction); 
+                    _human.DashUp(angle, direction);
                 }
             }
         }
 
-        
+
         void UpdateDashDown(bool inMenu)
         {
             if (!_human.Grounded && _human.State != HumanState.AirDodge && _human.MountState == HumanMountState.None &&

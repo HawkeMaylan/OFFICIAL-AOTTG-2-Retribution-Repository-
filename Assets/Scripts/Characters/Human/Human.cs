@@ -39,7 +39,7 @@ namespace Characters
         public HumanStats Stats;
         public bool FinishSetup;
         private HumanCustomSkinLoader _customSkinLoader;
-        public override List<string> EmoteActions => new List<string>() { "Salute", "Wave", "Nod", "Shake", "Dance", "Eat", "Flip" };
+        public override List<string> EmoteActions => new List<string>() { "Salute", "Wave", "Nod", "Shake", "Dance", "Eat", "Flip", "Scream" };
         public static LayerMask AimMask = PhysicsLayer.GetMask(PhysicsLayer.TitanPushbox, PhysicsLayer.MapObjectProjectiles,
            PhysicsLayer.MapObjectEntities, PhysicsLayer.MapObjectAll);
         public static LayerMask ClipMask = PhysicsLayer.GetMask(PhysicsLayer.MapObjectAll, PhysicsLayer.MapObjectCharacters,
@@ -55,7 +55,7 @@ namespace Characters
 
         // state
         private HumanState _state = HumanState.Idle;
-  
+
         public BaseTitan Grabber;
         public Transform GrabHand;
         public Human Carrier;
@@ -171,6 +171,10 @@ namespace Characters
 
         //States Addons
         private float _flareTimeLeft = 0f;
+
+
+        //Mount Addon
+        public HawkMountableObject HawkMountable;
 
 
 
@@ -344,7 +348,7 @@ namespace Characters
 
         public void Jump()
         {
-            if (CurrentStamina >= 5f);
+            if (CurrentStamina >= 5f) ;
             {
                 Idle();
                 CrossFade(HumanAnimations.Jump, 0.1f);
@@ -357,26 +361,26 @@ namespace Characters
             }
         }
 
-                public void Mount(Transform transform, Vector3 positionOffset, Vector3 rotationOffset)
+        public void Mount(Transform transform, Vector3 positionOffset, Vector3 rotationOffset)
+        {
+            Transform parent = transform;
+            MapObject mapObject = null;
+            string transformName = "";
+            while (parent != null)
+            {
+                if (MapLoader.GoToMapObject.ContainsKey(parent.gameObject))
                 {
-                    Transform parent = transform;
-                    MapObject mapObject = null;
-                    string transformName = "";
-                    while (parent != null)
-                    {
-                        if (MapLoader.GoToMapObject.ContainsKey(parent.gameObject))
-                        {
-                            mapObject = MapLoader.GoToMapObject[parent.gameObject];
-                            break;
-                        }
-                        if (transformName == "")
-                            transformName = parent.name;
-                        else
-                            transformName = parent.name + "/" + transformName;
-                        parent = parent.parent;
-                    }
-                    Mount(mapObject, transformName, positionOffset, rotationOffset);
+                    mapObject = MapLoader.GoToMapObject[parent.gameObject];
+                    break;
                 }
+                if (transformName == "")
+                    transformName = parent.name;
+                else
+                    transformName = parent.name + "/" + transformName;
+                parent = parent.parent;
+            }
+            Mount(mapObject, transformName, positionOffset, rotationOffset);
+        }
 
         public void Mount(MapObject mapObject, Vector3 positionOffset, Vector3 rotationOffset)
         {
@@ -445,17 +449,31 @@ namespace Characters
         public void Unmount(bool immediate)
         {
             SetInterpolation(true);
-            if (MountState == HumanMountState.Horse && !immediate)
+            if ((MountState == HumanMountState.Horse || MountState == HumanMountState.HawkMountable) && !immediate)
             {
                 PlayAnimation(HumanAnimations.HorseDismount);
                 Cache.Rigidbody.AddForce((((Vector3.up * 10f) - (Cache.Transform.forward * 2f)) - (Cache.Transform.right * 1f)), ForceMode.VelocityChange);
                 MountState = HumanMountState.None;
+
+                // Notify the mountable if we were mounted on one
+                if (HawkMountable != null)
+                {
+                    HawkMountable.OnUnmounted();
+                    HawkMountable = null;
+                }
             }
             else
             {
                 MountState = HumanMountState.None;
                 Idle();
                 SetTriggerCollider(false);
+
+                // Notify the mountable if we were mounted on one
+                if (HawkMountable != null)
+                {
+                    HawkMountable.OnUnmounted();
+                    HawkMountable = null;
+                }
             }
             _lastMountMessage = null;
             Cache.PhotonView.RPC("UnmountRPC", RpcTarget.All, new object[0]);
@@ -480,6 +498,87 @@ namespace Characters
                 PlaySound(HumanSounds.Dodge);
             }
         }
+
+
+
+
+        public void MountHawkObject()
+        {
+            HawkMountableObject nearestMountable = FindNearestHawkMountable();
+            if (nearestMountable != null && MountState == HumanMountState.None &&
+                Vector3.Distance(nearestMountable.transform.position, Cache.Transform.position) < 15f)
+            {
+                PlayAnimation(HumanAnimations.HorseMount);
+                TargetAngle = nearestMountable.transform.rotation.eulerAngles.y;
+                PlaySound(HumanSounds.Dodge);
+
+                // Set mount state immediately (no waiting like horses)
+                MountState = HumanMountState.HawkMountable;
+                HawkMountable = nearestMountable;
+                SetInterpolation(false);
+
+                nearestMountable.OnMounted();
+            }
+        }
+
+        private HawkMountableObject FindNearestHawkMountable()
+        {
+            HawkMountableObject[] mountables = FindObjectsOfType<HawkMountableObject>();
+            HawkMountableObject nearest = null;
+            float nearestDistance = float.MaxValue;
+
+            foreach (HawkMountableObject mountable in mountables)
+            {
+                if (!mountable.IsOccupied) // Only consider unoccupied mountables
+                {
+                    float distance = Vector3.Distance(mountable.transform.position, Cache.Transform.position);
+                    if (distance < nearestDistance && distance < 15f)
+                    {
+                        nearest = mountable;
+                        nearestDistance = distance;
+                    }
+                }
+            }
+            return nearest;
+        }
+
+
+        public void UnmountHawkObject(bool immediate)
+        {
+            if (MountState == HumanMountState.HawkMountable) // Check for the correct state
+            {
+                SetInterpolation(true);
+                if (!immediate)
+                {
+                    PlayAnimation(HumanAnimations.HorseDismount);
+                    Cache.Rigidbody.AddForce((((Vector3.up * 10f) - (Cache.Transform.forward * 2f)) - (Cache.Transform.right * 1f)), ForceMode.VelocityChange);
+                }
+                else
+                {
+                    Idle();
+                    SetTriggerCollider(false);
+                }
+
+                if (HawkMountable != null)
+                {
+                    HawkMountable.OnUnmounted();
+                    HawkMountable = null;
+                }
+
+                MountState = HumanMountState.None;
+                MountedTransform = null;
+            }
+        }
+
+
+
+        /// end of Hawk Mount Addon
+
+
+
+
+
+
 
         public void Dodge(float targetAngle)
         {
@@ -986,7 +1085,7 @@ namespace Characters
                 ((BladeWeapon)Weapon).UseDurability(20000);
                 BladeSheathed = true;
                 // Sync over network
-                
+
                 if (PhotonNetwork.InRoom)
                 {
                     photonView.RPC("SyncSheathState", RpcTarget.All, BladeSheathed);
@@ -995,7 +1094,7 @@ namespace Characters
                 {
                     ApplySheathVisuals(BladeSheathed);
                 }
-                return; 
+                return;
             }
 
             if (BladeSheathed == true && ((BladeWeapon)Weapon).CurrentDurability > 0 && (Weapon is BladeWeapon))
@@ -1071,7 +1170,7 @@ namespace Characters
                 else
                     _reloadAnimation = HumanAnimations.ChangeBladeAir;
             }
-            
+
 
 
             CrossFade(_reloadAnimation, 0.1f, 0f);
@@ -1098,9 +1197,9 @@ namespace Characters
             _reloadTimeLeft = _stateTimeLeft;
             _reloadCooldownLeft = _reloadTimeLeft + 0.5f;
             ((InGameMenu)UIManager.CurrentMenu).HUDBottomHandler.Reload();
-            
-            
-                
+
+
+
 
         }
 
@@ -1110,7 +1209,7 @@ namespace Characters
 
         public void FireFlare(Color flareColor)
         {
-            if (State == HumanState.FiringFlare || State == HumanState.EmoteAction || State == HumanState.SpecialAction || State == HumanState.SpecialAttack || State == HumanState.Attack || State == HumanState.GroundDodge|| State == HumanState.Grab || Dead)
+            if (State == HumanState.FiringFlare || State == HumanState.EmoteAction || State == HumanState.SpecialAction || State == HumanState.SpecialAttack || State == HumanState.Attack || State == HumanState.GroundDodge || Dead)
                 return;
 
             if (Grounded)
@@ -1547,8 +1646,8 @@ namespace Characters
                 currentVelocity = rb.velocity;
             }
 
-            
-            float spawnHeight = 1f; 
+
+            float spawnHeight = 1f;
             Vector3 gasSpawnPosition = transform.position + Vector3.up * spawnHeight;
             GameObject gasPickupObj = PhotonNetwork.Instantiate("Buildables/bodyGasPickup", gasSpawnPosition, transform.rotation);
 
@@ -1875,7 +1974,7 @@ namespace Characters
 
             gameObject.name = "DeadBody";
             gameObject.tag = "Untagged";
-            
+
             Destroy(GetComponent<Human>());
         }
 
@@ -1971,7 +2070,7 @@ namespace Characters
                 case "head":
                     torqueMultiplier = 0.3f; // Even less for head
                     break;
-                
+
             }
 
             Vector3 randomTorque = new Vector3(
@@ -2216,7 +2315,7 @@ namespace Characters
             }
         }
 
-        
+
 
 
 
@@ -2227,14 +2326,14 @@ namespace Characters
         {
             if (IsMine() && !Dead)
             {
-                
+
                 _stateTimeLeft -= Time.deltaTime;
                 _dashCooldownLeft -= Time.deltaTime;
                 _reloadCooldownLeft -= Time.deltaTime;
                 UpdateIFrames();
                 UpdateBladeFire();
 
-               
+
                 if (_needFinishReload)
                 {
                     _reloadTimeLeft -= Time.deltaTime;
@@ -2281,7 +2380,7 @@ namespace Characters
 
 
 
-                else if (MountState == HumanMountState.MapObject)
+                if (MountState == HumanMountState.MapObject)
                 {
                     if (MountedTransform == null)
                         Unmount(true);
@@ -2299,6 +2398,21 @@ namespace Characters
                     {
                         Cache.Transform.position = Horse.Cache.Transform.position + Vector3.up * 1.95f;
                         Cache.Transform.rotation = Horse.Cache.Transform.rotation;
+                    }
+                }
+                else if (MountState == HumanMountState.HawkMountable)
+                {
+                    if (HawkMountable == null)
+                        UnmountHawkObject(true);
+                    else
+                    {
+                        // Follow the mountable object's position and rotation
+                        Cache.Transform.position = HawkMountable.mountPoint.position;
+                        Cache.Transform.rotation = HawkMountable.mountPoint.rotation;
+
+                        // Force idle state while mounted
+                        if (State != HumanState.Idle)
+                            Idle();
                     }
                 }
                 else if (State == HumanState.Attack)
@@ -2595,6 +2709,20 @@ namespace Characters
                         Idle();
                     return;
                 }
+
+
+                if (MountState == HumanMountState.HawkMountable)
+                {
+                    if (HawkMountable == null)
+                    {
+                        UnmountHawkObject(true);
+                        return;
+                    }
+
+                    // Use the mountable object's world velocity
+                    Cache.Rigidbody.velocity = HawkMountable.GetVelocity();
+                    return;
+                }
                 if (_hookHuman != null && !_hookHuman.Dead)
                 {
                     Vector3 vector2 = _hookHuman.Cache.Transform.position - Cache.Transform.position;
@@ -2702,7 +2830,7 @@ namespace Characters
                     force.x = Mathf.Clamp(force.x, -MaxVelocityChange, MaxVelocityChange);
                     force.z = Mathf.Clamp(force.z, -MaxVelocityChange, MaxVelocityChange);
                     force.y = 0f;
-                    if (Animation.IsPlaying(HumanAnimations.Jump)  && Animation.GetNormalizedTime(HumanAnimations.Jump) > 0.18f)
+                    if (Animation.IsPlaying(HumanAnimations.Jump) && Animation.GetNormalizedTime(HumanAnimations.Jump) > 0.18f)
                     {
                         // float jumpSpeed = ((0.5f * (float)Stats.Speed) - 20f);
                         float jumpSpeed = 20f;
@@ -4460,14 +4588,14 @@ namespace Characters
 
         public bool CanBladeAttack()
         {
-           
-            return Weapon is BladeWeapon && ((BladeWeapon)Weapon).CurrentDurability > 0f && State == HumanState.Idle && State != HumanState.FiringFlare; ;
+
+            return Weapon is BladeWeapon && ((BladeWeapon)Weapon).CurrentDurability > 0f && State == HumanState.Idle;
         }
 
         public void StartSpecialAttack(string animation)
         {
-             
-            if (State == HumanState.Attack || State == HumanState.SpecialAttack )
+
+            if (State == HumanState.Attack || State == HumanState.SpecialAttack)
                 FalseAttack();
             PlayAnimation(animation);
             State = HumanState.SpecialAttack;
@@ -5098,7 +5226,8 @@ namespace Characters
     {
         None,
         Horse,
-        MapObject
+        MapObject,
+        HawkMountable // Added
     }
 
     public enum HumanCarryState
