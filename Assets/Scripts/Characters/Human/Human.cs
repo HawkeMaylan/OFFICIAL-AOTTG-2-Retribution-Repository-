@@ -517,7 +517,7 @@ namespace Characters
 
                 // Add some initial force toward the mount point
                 Vector3 direction = (nearestMountable.mountPoint.position - Cache.Transform.position).normalized;
-                Cache.Rigidbody.AddForce(direction * 5f, ForceMode.VelocityChange);
+                Cache.Rigidbody.AddForce(direction * 15f, ForceMode.VelocityChange);
             }
         }
 
@@ -4457,6 +4457,11 @@ namespace Characters
                 return;
             if (MountState == HumanMountState.Horse)
                 Unmount(true);
+
+            if (MountState == HumanMountState.HawkMountable)  // Added
+                UnmountHawkObject(true);
+
+
             if (CarryState == HumanCarryState.Carry)
                 Cache.PhotonView.RPC("UncarryRPC", RpcTarget.All, new object[0]);
             if (State != HumanState.Attack && State != HumanState.SpecialAttack)
