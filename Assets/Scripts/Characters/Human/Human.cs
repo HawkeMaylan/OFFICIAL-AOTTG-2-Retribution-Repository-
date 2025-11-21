@@ -545,28 +545,56 @@ namespace Characters
 
         public void UnmountHawkObject(bool immediate)
         {
-            if (MountState == HumanMountState.HawkMountable) // Check for the correct state
+            if (MountState == HumanMountState.HawkMountable)
             {
                 SetInterpolation(true);
+
                 if (!immediate)
                 {
+                    // Use the same logic as horse unmounting
                     PlayAnimation(HumanAnimations.HorseDismount);
                     Cache.Rigidbody.AddForce((((Vector3.up * 10f) - (Cache.Transform.forward * 2f)) - (Cache.Transform.right * 1f)), ForceMode.VelocityChange);
+
+                    // Notify the mountable
+                    if (HawkMountable != null)
+                    {
+                        HawkMountable.OnUnmounted();
+                        HawkMountable = null;
+                    }
+
+                    MountState = HumanMountState.None;
                 }
                 else
                 {
+                    // Immediate unmount (like when mountable is destroyed)
                     Idle();
                     SetTriggerCollider(false);
+
+                    // Notify the mountable
+                    if (HawkMountable != null)
+                    {
+                        HawkMountable.OnUnmounted();
+                        HawkMountable = null;
+                    }
+
+                    MountState = HumanMountState.None;
                 }
 
-                if (HawkMountable != null)
-                {
-                    HawkMountable.OnUnmounted();
-                    HawkMountable = null;
-                }
-
-                MountState = HumanMountState.None;
+                // Clear the mount reference
                 MountedTransform = null;
+            }
+        }
+
+        [PunRPC]
+        public void UnmountHawkObjectRPC(PhotonMessageInfo info)
+        {
+            if (info.Sender != Cache.PhotonView.Owner)
+                return;
+            MountState = HumanMountState.None;
+            if (HawkMountable != null)
+            {
+                HawkMountable.OnUnmounted();
+                HawkMountable = null;
             }
         }
 

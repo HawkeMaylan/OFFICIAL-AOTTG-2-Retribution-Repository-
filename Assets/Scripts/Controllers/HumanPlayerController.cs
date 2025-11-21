@@ -387,6 +387,14 @@ namespace Controllers
                 else if (_humanInput.HorseJump.GetKeyDown())
                     _human.Horse.Jump();
             }
+            else if (_human.MountState == HumanMountState.HawkMountable)
+            {
+                if (SettingsManager.InputSettings.Human.MountHawkObject.GetKeyDown())
+                {
+                    ((Human)_human).UnmountHawkObject(false);
+                }
+                
+            }
         }
 
         private void ToggleUI()
