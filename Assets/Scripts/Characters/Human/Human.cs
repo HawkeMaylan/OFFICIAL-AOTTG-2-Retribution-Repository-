@@ -513,7 +513,7 @@ namespace Characters
                 PlaySound(HumanSounds.Dodge);
 
                 HawkMountable = nearestMountable;
-                nearestMountable.OnMounted();
+                // DON'T call OnMounted() here - wait for completion
 
                 // Add some initial force toward the mount point
                 Vector3 direction = (nearestMountable.mountPoint.position - Cache.Transform.position).normalized;
@@ -529,7 +529,8 @@ namespace Characters
 
             foreach (HawkMountableObject mountable in mountables)
             {
-                if (!mountable.IsOccupied) // Only consider unoccupied mountables
+                // Only consider unoccupied mountables
+                if (!mountable.IsOccupied)
                 {
                     float distance = Vector3.Distance(mountable.transform.position, Cache.Transform.position);
                     if (distance < nearestDistance && distance < 15f)
@@ -551,11 +552,10 @@ namespace Characters
 
                 if (!immediate)
                 {
-                    // Use the same logic as horse unmounting
                     PlayAnimation(HumanAnimations.HorseDismount);
                     Cache.Rigidbody.AddForce((((Vector3.up * 10f) - (Cache.Transform.forward * 2f)) - (Cache.Transform.right * 1f)), ForceMode.VelocityChange);
 
-                    // Notify the mountable
+                    // Clear occupation when unmounting
                     if (HawkMountable != null)
                     {
                         HawkMountable.OnUnmounted();
@@ -566,11 +566,10 @@ namespace Characters
                 }
                 else
                 {
-                    // Immediate unmount (like when mountable is destroyed)
                     Idle();
                     SetTriggerCollider(false);
 
-                    // Notify the mountable
+                    // Clear occupation when unmounting
                     if (HawkMountable != null)
                     {
                         HawkMountable.OnUnmounted();
@@ -579,9 +578,6 @@ namespace Characters
 
                     MountState = HumanMountState.None;
                 }
-
-                // Clear the mount reference
-                MountedTransform = null;
             }
         }
 
@@ -2445,6 +2441,14 @@ namespace Characters
                         }
                     }
                 }
+
+                // Failed mount cleanup - if we have a HawkMountable reference but we're not mounted and not in mount animation
+                if (HawkMountable != null && MountState == HumanMountState.None &&
+                    !Animation.IsPlaying(HumanAnimations.HorseMount))
+                {
+                    // Mount was interrupted or failed - clear the reference
+                    HawkMountable = null;
+                }
                 else if (State == HumanState.Attack)
                 {
                     if (Setup.Weapon == HumanWeapon.Blade)
@@ -2900,12 +2904,16 @@ namespace Characters
 
                     // Hawk mount completion - SEPARATE condition
                     else if (HawkMountable != null && Animation.IsPlaying(HumanAnimations.HorseMount) &&
-                        Vector3.Distance(HawkMountable.mountPoint.position, Cache.Transform.position) < 2f) // Simpler proximity check
+                    Vector3.Distance(HawkMountable.mountPoint.position, Cache.Transform.position) < 2f)
                     {
                         Cache.Transform.position = HawkMountable.mountPoint.position;
                         Cache.Transform.rotation = HawkMountable.mountPoint.rotation;
                         MountState = HumanMountState.HawkMountable;
                         SetInterpolation(false);
+
+                        // ONLY NOW mark it as occupied
+                        HawkMountable.OnMounted();
+
                         if (!Animation.IsPlaying(HumanAnimations.HorseIdle))
                             CrossFade(HumanAnimations.HorseIdle, 0.1f);
                     }
