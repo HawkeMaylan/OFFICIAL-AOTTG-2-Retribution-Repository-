@@ -517,7 +517,7 @@ namespace Characters
 
                 // Add some initial force toward the mount point
                 Vector3 direction = (nearestMountable.mountPoint.position - Cache.Transform.position).normalized;
-                Cache.Rigidbody.AddForce(direction * 15f, ForceMode.VelocityChange);
+                Cache.Rigidbody.AddForce(direction * 10f, ForceMode.VelocityChange);
             }
         }
 
@@ -550,12 +550,17 @@ namespace Characters
             {
                 SetInterpolation(true);
 
+                // Sync unmount over network
+                if (IsMine())
+                {
+                    Cache.PhotonView.RPC("UnmountHawkRPC", RpcTarget.All, new object[0]);
+                }
+
                 if (!immediate)
                 {
                     PlayAnimation(HumanAnimations.HorseDismount);
                     Cache.Rigidbody.AddForce((((Vector3.up * 10f) - (Cache.Transform.forward * 2f)) - (Cache.Transform.right * 1f)), ForceMode.VelocityChange);
 
-                    // Clear occupation when unmounting
                     if (HawkMountable != null)
                     {
                         HawkMountable.OnUnmounted();
@@ -569,7 +574,6 @@ namespace Characters
                     Idle();
                     SetTriggerCollider(false);
 
-                    // Clear occupation when unmounting
                     if (HawkMountable != null)
                     {
                         HawkMountable.OnUnmounted();
@@ -582,16 +586,35 @@ namespace Characters
         }
 
         [PunRPC]
-        public void UnmountHawkObjectRPC(PhotonMessageInfo info)
+        public void MountHawkRPC(int hawkViewId, PhotonMessageInfo info)
         {
             if (info.Sender != Cache.PhotonView.Owner)
                 return;
-            MountState = HumanMountState.None;
+
+            var hawkView = PhotonView.Find(hawkViewId);
+            if (hawkView != null)
+            {
+                HawkMountable = hawkView.GetComponent<HawkMountableObject>();
+                if (HawkMountable != null)
+                {
+                    MountState = HumanMountState.HawkMountable;
+                    HawkMountable.OnMounted();
+                }
+            }
+        }
+
+        [PunRPC]
+        public void UnmountHawkRPC(PhotonMessageInfo info)
+        {
+            if (info.Sender != Cache.PhotonView.Owner)
+                return;
+
             if (HawkMountable != null)
             {
                 HawkMountable.OnUnmounted();
                 HawkMountable = null;
             }
+            MountState = HumanMountState.None;
         }
 
 
@@ -2211,6 +2234,11 @@ namespace Characters
                 if (BackHuman != null && BackHuman.CarryState == HumanCarryState.Carry)
                     BackHuman.Cache.PhotonView.RPC("CarryRPC", player, new object[] { Cache.PhotonView.ViewID });
 
+                if (MountState == HumanMountState.HawkMountable && HawkMountable != null)
+                {
+                    Cache.PhotonView.RPC("MountHawkRPC", player, new object[] { HawkMountable.gameObject.GetPhotonView().ViewID });
+                }
+
                 Cache.PhotonView.RPC("SetupRPC", player, Setup.CustomSet.SerializeToJsonString(), (int)Setup.Weapon);
                 LoadSkin(player);
             }
@@ -2904,14 +2932,19 @@ namespace Characters
 
                     // Hawk mount completion - SEPARATE condition
                     else if (HawkMountable != null && Animation.IsPlaying(HumanAnimations.HorseMount) &&
-                    Vector3.Distance(HawkMountable.mountPoint.position, Cache.Transform.position) < 2f)
+                     Vector3.Distance(HawkMountable.mountPoint.position, Cache.Transform.position) < 2f)
                     {
                         Cache.Transform.position = HawkMountable.mountPoint.position;
                         Cache.Transform.rotation = HawkMountable.mountPoint.rotation;
                         MountState = HumanMountState.HawkMountable;
                         SetInterpolation(false);
 
-                        // ONLY NOW mark it as occupied
+                        // Sync over network
+                        if (IsMine())
+                        {
+                            Cache.PhotonView.RPC("MountHawkRPC", RpcTarget.All, new object[] { HawkMountable.gameObject.GetPhotonView().ViewID });
+                        }
+
                         HawkMountable.OnMounted();
 
                         if (!Animation.IsPlaying(HumanAnimations.HorseIdle))
