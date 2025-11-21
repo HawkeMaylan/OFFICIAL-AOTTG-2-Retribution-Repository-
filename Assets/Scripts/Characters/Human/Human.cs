@@ -507,17 +507,21 @@ namespace Characters
             HawkMountableObject nearestMountable = FindNearestHawkMountable();
             if (nearestMountable != null && MountState == HumanMountState.None)
             {
-                // Just start the animation and store reference
                 PlayAnimation(HumanAnimations.HorseMount);
                 TargetAngle = nearestMountable.transform.rotation.eulerAngles.y;
                 PlaySound(HumanSounds.Dodge);
 
                 HawkMountable = nearestMountable;
-                // DON'T call OnMounted() here - wait for completion
 
-                // Add some initial force toward the mount point
+                // Use the SAME physics as horse mounting
                 Vector3 direction = (nearestMountable.mountPoint.position - Cache.Transform.position).normalized;
-                Cache.Rigidbody.AddForce(direction * 10f, ForceMode.VelocityChange);
+                float distance = Vector3.Distance(nearestMountable.mountPoint.position, Cache.Transform.position);
+
+                // Horse mount formula: direction × (0.6 × gravity × distance ÷ 12)
+                Vector3 force = direction * (1.6f * Physics.gravity.magnitude * distance / 8f);
+                force.y = 13f; // Same upward boost as horses
+
+                Cache.Rigidbody.AddForce(force, ForceMode.VelocityChange);
             }
         }
 
@@ -2932,7 +2936,7 @@ namespace Characters
 
                     // Hawk mount completion - SEPARATE condition
                     else if (HawkMountable != null && Animation.IsPlaying(HumanAnimations.HorseMount) &&
-                     Vector3.Distance(HawkMountable.mountPoint.position, Cache.Transform.position) < 2f)
+                     Vector3.Distance(HawkMountable.mountPoint.position, Cache.Transform.position) < 1f)
                     {
                         Cache.Transform.position = HawkMountable.mountPoint.position;
                         Cache.Transform.rotation = HawkMountable.mountPoint.rotation;
