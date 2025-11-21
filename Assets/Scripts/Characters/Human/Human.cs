@@ -505,19 +505,19 @@ namespace Characters
         public void MountHawkObject()
         {
             HawkMountableObject nearestMountable = FindNearestHawkMountable();
-            if (nearestMountable != null && MountState == HumanMountState.None &&
-                Vector3.Distance(nearestMountable.transform.position, Cache.Transform.position) < 15f)
+            if (nearestMountable != null && MountState == HumanMountState.None)
             {
+                // Just start the animation and store reference
                 PlayAnimation(HumanAnimations.HorseMount);
                 TargetAngle = nearestMountable.transform.rotation.eulerAngles.y;
                 PlaySound(HumanSounds.Dodge);
 
-                // Set mount state immediately (no waiting like horses)
-                MountState = HumanMountState.HawkMountable;
                 HawkMountable = nearestMountable;
-                SetInterpolation(false);
-
                 nearestMountable.OnMounted();
+
+                // Add some initial force toward the mount point
+                Vector3 direction = (nearestMountable.mountPoint.position - Cache.Transform.position).normalized;
+                Cache.Rigidbody.AddForce(direction * 5f, ForceMode.VelocityChange);
             }
         }
 
@@ -2434,13 +2434,15 @@ namespace Characters
                         UnmountHawkObject(true);
                     else
                     {
-                        // Follow the mountable object's position and rotation
                         Cache.Transform.position = HawkMountable.mountPoint.position;
                         Cache.Transform.rotation = HawkMountable.mountPoint.rotation;
 
-                        // Force idle state while mounted
-                        if (State != HumanState.Idle)
-                            Idle();
+                        // Use horse idle animation while mounted
+                        if (!Animation.IsPlaying(HumanAnimations.HorseIdle) &&
+                            !Animation.IsPlaying(HumanAnimations.HorseMount))
+                        {
+                            CrossFade(HumanAnimations.HorseIdle, 0.1f);
+                        }
                     }
                 }
                 else if (State == HumanState.Attack)
@@ -2883,11 +2885,26 @@ namespace Characters
                 }
                 else
                 {
-                    if (Horse != null && (Animation.IsPlaying(HumanAnimations.HorseMount) || Animation.IsPlaying(HumanAnimations.AirFall)) && Cache.Rigidbody.velocity.y < 0f && Vector3.Distance(Horse.Cache.Transform.position + Vector3.up * 1.65f, Cache.Transform.position) < 1f)
+                    // Horse mount completion (existing)
+                    if (Horse != null && (Animation.IsPlaying(HumanAnimations.HorseMount) || Animation.IsPlaying(HumanAnimations.AirFall)) &&
+                        Cache.Rigidbody.velocity.y < 0f &&
+                        Vector3.Distance(Horse.Cache.Transform.position + Vector3.up * 1.65f, Cache.Transform.position) < 1f)
                     {
                         Cache.Transform.position = Horse.Cache.Transform.position + Vector3.up * 1.95f;
                         Cache.Transform.rotation = Horse.Cache.Transform.rotation;
                         MountState = HumanMountState.Horse;
+                        SetInterpolation(false);
+                        if (!Animation.IsPlaying(HumanAnimations.HorseIdle))
+                            CrossFade(HumanAnimations.HorseIdle, 0.1f);
+                    }
+
+                    // Hawk mount completion - SEPARATE condition
+                    else if (HawkMountable != null && Animation.IsPlaying(HumanAnimations.HorseMount) &&
+                        Vector3.Distance(HawkMountable.mountPoint.position, Cache.Transform.position) < 2f) // Simpler proximity check
+                    {
+                        Cache.Transform.position = HawkMountable.mountPoint.position;
+                        Cache.Transform.rotation = HawkMountable.mountPoint.rotation;
+                        MountState = HumanMountState.HawkMountable;
                         SetInterpolation(false);
                         if (!Animation.IsPlaying(HumanAnimations.HorseIdle))
                             CrossFade(HumanAnimations.HorseIdle, 0.1f);
